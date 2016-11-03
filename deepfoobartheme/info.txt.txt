@@ -1,0 +1,3 @@
+Theme: DeepFoobar2000theme
+Artist: ddksira
+Additional link: http://customize.org/foobar/skins/65676060
