@@ -1,0 +1,43 @@
+[0.4.4]
+CHG: bundled tak_deco_lib.dll 2.0
+
+[0.4.3]
+NEW: added damage reporting for file integrity verifier
+CHG: compiled with the TAK SDK 1.1.1
+CHG: bundled tak_deco_lib.dll 1.1.1
+
+[0.4.2]
+CHG: the plugin now returns audio chunks of a fixed size instead of using the TAK file's frame size
+CHG: removed "alpha" from internal version information
+NEW: added TAK icon by Florian Trendelenburg
+
+[0.4.1]
+CHG: compiled with the TAK SDK 1.0.6
+CHG: bundled tak_deco_lib.dll 1.0.7
+
+[0.4]
+NEW: read embedded album art
+
+[0.3.4]
+NEW: version dependent profile decoding for 1.0.1 and 1.0.2
+
+[0.3.2]
+FIX: reset file position when reopening TAK decoder on tag update
+NEW: TAK library information in component's about box
+
+[0.3.1]
+FIX: close and reopen TAK decoder on tag update
+
+[0.3]
+NEW: support for embedded cue sheets
+NEW: encoder preset and version information in tech info
+FIX: static bitrate only displayed when dynamic bitrate display is enabled in foobar2000 options
+
+[0.2.1]
+NEW: (debug help) call path tracking for calls to tak_deco_lib
+
+[0.2]
+NEW: playback and (technical) metadata retrieval through tak_deco_lib
+
+[0.1]
+NEW: read and write APEv2 tags

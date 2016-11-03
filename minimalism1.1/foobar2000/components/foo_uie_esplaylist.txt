@@ -1,0 +1,361 @@
+foo_uie_esplaylist.dll v0.1.3.9 (UI Extension for ColumnsUI 0.3+ / UI Element for Default UI)
+for foobar2000 v1.0+, Windows Vista+ 
+
+
+SDK version
+foobar2000:2010-05-21
+       cui:6.3
+
+
+Default UI または、ColumnsUI 用の  Playlist Viewer / Library Viewer  です。
+
+
+
+※設定の説明は書きかけです。
+
+
+Preferences -> Tools -> EsPlaylist
+
+[Preferences]
+	[Grouping Page]
+	You can configure grouping presets.
+
+		Grouping List
+			This list shows the grouping layers in the currently selected preset.
+			Use the checkbox to control the which grouping layer should be the default layer (to be displayed first when switching active grouping-preset). 
+
+
+		Grouping Layer Setting
+			Grouping:
+				The titleformat script to determine how to group each tracks.
+				Makes consecutive tracks that return the same result of this script belong to the same group.
+				Note that the tracks belonging to one group must be consecutive.
+				You can use "Sort format" with "Force-Sorted", if you want to avoid duplicated groups.
+
+			Title:
+				The titleformat script for group title.
+		
+			Side Info:
+				The additional titleformat script for group side information.
+
+			Artwrok:
+				The kind of artwork to display on group header.
+
+			Show Only Focused Group:
+				Displayed tracks will be limited to ones contained in the focused group if this grouping layer applied.
+
+
+		* Note *
+			Multivalue fields, %<xxx>% are available in "Grouping", "Title" and "SideInfo"  for Browse Library mode (with Force-Sorted=off). 
+			%<xxx>% fields always return "?" in Playlist mode.
+ 
+
+		Sort format
+			The titleformat script that specifies the criteria string of sorting all tracks inside each group for "Browse Library" mode.
+			All groups are sorted by "Grouping" format automatically.
+
+			Force-Sorted: Apply sort format to the other modes (i.e. Playlist mode) too.
+			              Note about "Force-Sorted":
+					* It doesn't affect the actual order of the playlist contents, but reorders the "display order".
+					* Editing the playlist with Drag & Drop is not supported.  
+					* All tracks are sorted over the groups.
+					* Multivalue fields(i.e. %<xxx>%) are not supported.
+
+
+		Associate with Playlist
+			The preset can be associated with the specified playlists.
+			You can use the string, "#!Library!#" to associate the preset with Browse Library mode
+
+
+[Column]
+	The content of the each column is configurable with  "right-click menu->Edit Column..." on the Column Header.
+
+	Name : Name of the column.
+	Format : The titleformat script that specifies the track information to be displayed.
+		 Rating Column needs integer value within a range from 0 to 5 as the result of the titleformat script.
+
+	Linked Meta Field" is used for inline-tag editing mode.
+
+
+	Artwork Column and Group Info Column are special columns that need to be placed on left side.
+
+
+[Search bar]
+	Search bar provides filter functionality using Query Syntax.
+
+	Search mode setting:
+		Name  : name of this search-mode.
+
+		Query : Query pattern.
+			If there is %_s% in the specified query pattern, %_s% will be replaced with the string entered into the Search bar by the user.	
+			Otherwise (if there is not %_s% in the specified query pattern), the string entered into the Search bar by the user will be added to the specified query pattern.
+
+		Linked meta-field for AutoComplete : meta-field for AutoComplete. (See Preferences->Advanced->Display->Autocomplete fields)
+
+		Script for Contextmenu : The titleformat script (e.g. "[%artist%]" ) for context-menu "Search for same by".
+
+	"Search for same by" can be used when the Searchbar is displayed. 
+	You can enable/disable "Search for same by" in "Preferences->Display->Context Menu".
+
+
+[Typing search (Find As You Type)]
+	Typing search provides keyboard search functionality called "incremental search" or "find as you type".
+	If you type a character(s) into the panel, group titles and column titles will be searched.
+	You can select which columns should be searched with ContextMenu on each column headers.
+	An active search-word is displayed in status bar.
+
+
+[Context Menu]
+	[Grouping]
+		You can activate any grouping preset.
+
+	[Playlists/Browse]
+		- Follow Active Playlist
+			Displays the contents of the active playlist.
+ 			The display-area automatically follows the focused track.
+			If you tick "Display Only Focused Group", you can list the tracks belonging to the group which the focused track belongs to.
+
+		- Follow NowPlaying Playlist
+			Displays the contents of the playing playlist.
+			The display-area follows the currently playing track.
+			If you tick "Display Only Focused Group",  you can list the tracks belonging to the group which the current playing track belongs to.
+
+		- Browse Library
+			Displays the contents of the media library.
+
+
+		If you don't tick any of them, the contents of a specific playlist are displayed.
+
+			* Note *
+				If you uncheck "Follow Active Playlist", "Views->Column Playlist->Activate Now Playing" will not work in EsPlaylist.
+
+
+	[Options]
+		View Style
+			Hide non-focused group:
+				 Displayed items are limited to tracks and groups contained in the focused group, regardless of current preset setting.
+
+			Layered View : Grid View.
+			Flat View (Fixed) : Normal List View Style
+
+
+[keyboard shortcut]
+	Enter    : Play
+	Enter + Shift (on group header) : Open/Close group. 
+	Ctrl + a : Select all displayed items
+	Ctrl + Shift + a : Select all
+	Ctrl + z : Undo
+	Ctrl + y : Redo
+	Ctrl + c : Copy
+	Ctrl + x : Cut
+	Ctrl + v : Paste
+	Delete   : Remove the selected tracks from playlist.
+	F2       : Begin inline-tag edit.
+	F3	 : SearchBar on/off
+	F5       : Go to the next selected item.
+	F5 + Shift : Go to the previous selected item.
+	F6	 : Move input-focus between ListView and SearchBar.
+	ESC      : Cancel inline-tag edit.
+
+
+[titleformat]
+	$es_is_ascii(x)
+		Returns true, if "x" consists of only ascii characters, otherwise false. 
+
+
+	$es_is_numeric(x)
+		Returns true, if "x" consists of only numeric characters, otherwise false. 
+
+
+	$es_is_alphabet(x)
+		Returns true, if "x" consists of only alphabet characters, otherwise false. 
+
+
+	$es_char_type(x)
+		Returns 1, if "x" consists of only numeric characters,
+			2, if "x" consists of only alphabet characters
+			3, if "x" consists of only ascii characters except numeric and alphabet.
+			4, otherwise
+
+
+	$es_highlight(x)  or  $es_hl(x)
+	    [Column Format] [Group Title] [Group SideInfo]
+		Sets the color for the following text according to x.
+		The range of x is from -3 to 7.
+		
+		  x     |         -3              -2     ...   0   ...   2       ...    4    ...    6              7
+		color   |    near-background  intermediate   text    intermediate   highlight  intermediate  near-background
+
+
+	$es_highlight()  or  $es_hl()
+		Resets the text color to the default color.		
+
+
+
+	%es_item_index%
+	    [Column Format]
+		Index of the item in the group it belongs to.
+
+	%es_subgroup_count%
+	    [Group Title] [Group SideInfo]
+		Count of the sub-groups/items in the group.
+
+	%es_subgroup_length%
+	    [Group Title] [Group SideInfo]
+		Playback length of the sub-groups/items in the group.
+
+	%es_group_header%
+	    [Group Title]
+		Returns true, if group header style is applied to the group, otherwise false. 
+ 
+
+
+･本ソフトウェアには、下記の使用条件とともに配布されているソフトウェアの一部が含まれています。
+ This software includes a part of the following software/icon.
+
+* foobar2000 1.0 SDK
+  Copyright (c) 2001-2010, Peter Pawlowski
+  All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 
+  Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation or other materials provided with the distribution.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+* Columns UI SDK 6.3.1
+
+
+* Some Icons are Copyright (c) Yusuke Kamiyamane.
+  All rights reserved. Licensed under a Creative Commons Attribution 3.0 license. 
+
+
+
+･ライセンスについて
+  Copyright (c) 2010, ssenna
+
+  バイナリ形式で再頒布する場合、頒布物に付属のドキュメント等の資料に、上記の著作権表示、本条件一覧、および下記免責条項を含めること。
+  書面による特別の許可なしに、本ソフトウェアから派生した製品の宣伝または販売促進に、著作権所有者または貢献者の名前を使用してはならない。
+
+  このソフトウェアは著作権所有者および貢献者により「現状のまま」提供されるものとし、商業的な使用可能性や特定の目的に対する適合性などの保証を含め、明示的暗黙的を問わず、いかなる保証もありません。
+  著作権所有者および貢献者は、事由の如何を問わず、損害発生の原因の如何を問わず、かつ責任の根拠が契約であるか厳格責任であるか（過失その他）不法行為であるかを問わず、仮にそのような損害が発生する可能性を知らされていたとしても、
+  このソフトウェアの使用から発生した直接損害、間接損害、偶発的な損害、特別損害、懲罰的損害、または結果損害（代替の物品やサービスの調達、使用機会やデータや利益の損失、業務の中断を含む、あらゆる損害）に対して一切責任を負いません。 
+
+
+
+
+
+[免責事項など]
+ライセンス条項にありますように、このソフトウェアには、いかなる保証もありません。
+このソフトウェアを使用したことによって生じたすべての損害・障害・権利侵害・不具合等に関して、ソフトウェア作者は、一切の責任を負いません。
+たとえバグがあったとしても、修正の義務を負いません。
+この事項に了承頂ける方のみ、各自の責任においてご使用ください。
+
+
+
+
+
+
+
+[changelog]
+v1.3
+･ Searchbarの履歴をモードごと個別にした。
+･ Searchbarの履歴をロックできるようにした。
+･ コンテキストメニューからSearchbarのクエリを発行できるようにした。(要設定)
+･ ドラッグアンドドロップの動作改善。
+･ コンテキストメニューのチェックマークの変更（v1.3.1）
+･ mainmenuコマンドの追加。( View->EsPlaylist )（v1.3.2）
+･ Layered viewでのTooltipのサポート（v1.3.2）
+･ Fixed Flat View で、Go to up/down layerを実行すると表示がおかしくなるのを修正（v1.3.3）
+･ mainmenu commandを追加。(v1.3.4）
+･ Playlist modeでの middle click action設定を追加。（v1.3.4）
+･ その他修正。（v1.3.4）
+･ Typing searchで非ASCIIなキーが効かないのを修正（v1.3.5）
+･ Searchbarでのkeyboard shortcutの扱いを変更（v1.3.5.1）
+･ ColumnsUIにおけるGroup Titleの文字色の選択ルールを変更（v1.3.5.1）
+･ Layered Viewでのスクロールの挙動を変更（v1.3.6）
+･ input focusに関するmainmenuコマンドを追加（v1.3.6）
+･ ローカルなTitleformatが返す真偽値を修正(v1.3.6.1)
+･ mainmenuコマンドをデフォルトでは表示しないようにした(v1.3.6.1)
+･ ローカルなTitleformatが返す真偽値を再修正(v1.3.6.2)
+･ マイナーバグFix(v1.3.6.3)
+･ クラッシュする場合があるのを修正したつもり。(v1.3.6.3)
+･ Edge Styleの設定を追加。(v1.3.7)
+･ いくつかのマイナーな変更。(v1.3.7)
+･ Search Barへの機能追加 (v1.3.7.1)
+･ いくつかのマイナーな修正。(v1.3.7.1)
+･ 各カラムのボーダーの描画機能追加。(ColumnHeader -> Column Options->Show Border) (v1.3.8)
+･ Flat View (Fixed)モードで、複数レイヤがある場合、最下層のgroup headerのtitle描画位置を変更。(v1.3.8)
+･ Album artのキャッシュサイズ拡大オプション追加。(Configure->Enlarge Album art cache) (v1.3.8)
+･ 貼り付け時に、クリップボードのオープンに失敗した場合クラッシュするのを修正。(v1.3.9)
+･ アルバムアートの縮小時に端に薄い線が入ったりする場合があるのを修正。(v1.3.9)
+･ Typing searchでローマ字のままで日本語検索をできるようにした。(v1.3.9)
+･ Group Infoカラムの縦サイズがアルバムアートカラムと同じという制限をなくした。(v1.3.9)
+
+v1.2
+･$es_highlightの追加。
+･typing searchの比較方法を、パーシャルマッチングにした。
+･typing searchのIME関連の不具合を修正。
+･typing searchの設定追加。(v1.2.1)
+･album artを読み込まない場合があるのを修正。(v1.2.2)
+･searchbarの動作を各種修正。(v1.2.2)
+･searchbarの動作を各種修正。(v1.2.3)
+･rating columnでratingをダブルクリックで設定できるようにした。(通常Playback Statisticsが必要) (v1.2.3)
+･columnヘッダクリック時のsortフォーマットの設定を追加。(v1.2.3)
+
+
+v1.1
+･%es_group_header%の追加。
+･Searchbarの動作を各種変更。
+･groupヘッダのボーダ色の調整。
+･inline-tag editにauto complete機能追加。
+･描画関係の修正(Searchbarのボタンなど)(v1.1.1)
+･終了時に表示中のgroupingレイヤの深さを記憶しておくようにした。(v1.1.1)
+･特定のケースでのフォントサイズと色の調整。(v1.1.2)
+･キーボード操作の改善。(v1.1.2)
+･テキスト描画の整理、$tab()のサポート。(v1.1.3)
+･限定的なTooltipのサポート(Configure->Display Tooltip in Flat View)。(v1.1.3)
+･細かいバグ修正。(v1.1.3)
+･Tooltipのバグ修正(Configure->Display Tooltip in Flat View)。(v1.1.3.1)
+･Browse Library modeで$tab()が動作しない場合があるのを修正。(v1.1.3.1)
+･パネルサイズが極端に小さいとスクロール位置が一番上に戻ってしまうのを修正。(v1.1.3.2)
+･プレイリストのリオーダーのバグ修正。(v1.1.4)
+･起動時にBrowse Library modeの場合にプリセット選択を誤ってしまうことがあるのを修正(v1.1.5)
+･Associate with Playlistで、Browse Library modeの指定に、#!Library!#を使えるようにした(v1.1.5)
+
+v1.1 beta 6
+･Search barを追加。
+･Browse Libraryのときで、Force-Sortedな場合は、beta4以前と同様にトラック全体をソートするようにした。
+･Search barの描画関連の不具合を修正(v1.1 beta 6a)
+･Search barを上に配置できるようにした(v1.1 beta 6a)
+
+v1.1 beta 5
+･Browse Libraryのときのみ、%<xxx>%スタイルのフィールドを、GroupingとTitleと、SideInfoで使用できるようにした。
+ それに伴って、Browse LibraryのときのSort Formatの仕様が変更。(グループ単位はGroupingで自動的にソート、グループの中でのみSort Formatでソートされる)
+ プレイリスト表示時は、%<xxx>%は?を返します。
+･カラムヘッダをクリックしたときに、ソートするかどうかを選択可能にした。
+･複数項目を選択している場合に、F5(F5+Shift)で移動可能にした。
+･Flat View状態で、Typing Searchしたときに、グループヘッダのTitleも検索にヒットするようにした(最初の仕様に戻した)。
+
+v1.1 beta 4
+･drag & dropが効かないケースがあるのを修正。
+･再生トラックの背景をハイライトするかどうか選択可能にした。
+･1パネル内で、あるプレイリストから別のプレイリストにdrag & dropした場合にundoが正常に動作しないのを修正。(beta 4.1)
+
+v1.1 beta 3
+･再生とポーズのアイコンを変更。
+
+v1.1 beta 2
+･$rgbのサポート。
+･column設定のdynamic formatの削除。(%isplaying%を使用してください)
+･SDK2010-05-21でビルド。
+･version番号のルールを推奨に従うよう変更。
+･他、細かい修正。
+
+v1.1 beta
+･ Layered View時に、グループごとにできる冗長なスペースを削除。
+･ カスタム色のとき(VisualStyleを使わない場合)の選択行などの背景色の描画で、薄くボーダーを描画するようにした。
+･ 他、細かい変更。

@@ -1,0 +1,13 @@
+Columns UI, iPod manager, Album list panel, Console panel and Typefind panel components for the foobar2000 audio player
+Copyright (c) musicmusic
+All rights reserved.
+
+If you continue to use this software, please make a donation online at http://yuo.be.
+
+Redistribution of this software and use in binary form, without modification, are permitted provided that the following conditions are met:
+
+- Redistributions must reproduce this licence document in its entirety in the documentation and/or other materials provided with the distribution. 
+- Neither the name of the author nor the names of its contributors may be used to endorse or promote works derived from this software without specific prior written permission.
+- Redistribution of modified versions of this software is not allowed without prior written permission from the author.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
