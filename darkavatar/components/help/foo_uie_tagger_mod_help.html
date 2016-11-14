@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>Tagger Panel - Help</title>
+    <style type="text/css">
+/*<![CDATA[*/
+  img.c7 {width: 395px; height: 126px;}
+  img.c6 {width: 672px; height: 539px;}
+  h4.c5 {text-decoration: underline;}
+  span.c4 {font-style: italic;}
+  span.c3 {font-weight: bold;}
+  img.c2 {width: 445px; height: 337px;}
+  span.c1 {text-decoration: underline;}
+  /*]]>*/
+  </style> <style type="text/css">
+/*<![CDATA[*/
+  span.c1 {font-style: italic;}
+  /*]]>*/
+  </style>
+  </head>
+  <body>
+    <h3>foo_uie_tagger_mod</h3>
+    foo_uie_tagger_mod is a foobar2000 component for quick tagging
+    defined metadata fields. It can be used as a panel or a free
+    floating window. The free floating window can be opened by using the
+    playlist's context menu (Tagging -&gt; Tag in tagger panel -&gt;
+    Default <span class="c4">or</span> "Name"). <br>
+    <br>
+    <br>
+    <h4 class="c5">Window / Panel</h4>
+    The image below shows the free floating window, but the panel looks
+    the same, just without the titlebar. It contains the elements
+    described below. <br>
+    <br>
+    <img src="png/Panel.png"><br>
+    <br>
+    <span class="c3">List of values:</span> The list of values contains
+    the different values for the defined metadata field for the panel.
+    Three possible states are available for a value: unselected,
+    selected and indeterminate. The state is determined by the selected
+    items of the active playlist. <br>
+    <br>
+    <span class="c3">Filter values:</span> This edit box filters the
+    list of values according to the entered characters. There are two
+    special filters: <br>
+    \s: Show only the entries, which are selected or indeterminate <br>
+    \u: Show only the entries, wich are unselected <br>
+    <br>
+    <span class="c3">Add values:</span> This edit box let you add values
+    to the list. To add more than one value at a time, separate them
+    with semicolons, for example: Attribute1;Attribute2. The new values
+    will be marked as selected. Already existing values will only be
+    selected. <br>
+    <br>
+    <span class="c3">Context menu:</span> The context menu provides the
+    following entries: <br>
+    <br>
+    <span class="c4">Options:</span> Opens the <a href="#Options_dialog">options
+
+
+
+
+      dialog</a> for customizing the behaviour and appearance of the
+    panel. Only available, if no changes are pending. <br>
+    <br>
+    <span class="c4">Preset 1, Preset 2, ...:</span> Names of defined
+    presets for the panel <br>
+    <br>
+    <span class="c4">Scan library:</span> Toggles the <a href="#Scan_library_option">scan
+
+
+
+
+      library option</a>. Only available, if no changes are pending. <br>
+    <span class="c4">Filter on focused tags:</span> Toggles the <a href="#Filter_on_focused_tags_option">filter
+
+
+
+
+      on focused tags option</a>. Only available, if no changes are
+    pending. <br>
+    <span class="c4">Tag with same value from library:</span> Tags the
+    active selection with the same value from the library determined for
+    the title format expression defined <a href="#Tag_with_same_value_option">here</a>.
+    Only available, if no changes are pending. <br>
+    <br>
+    <span class="c4">Sort list:</span> Toggles the <a href="#Sort_list_option">sort
+
+
+
+
+      list option</a>. Only available, if no changes are pending. <br>
+    <span class="c4">Synchronize:</span> Synchronizes the list of values
+    with the library, i.e. all values, which are not in the library will
+    be removed and all missing values will be added. Only available, if
+    no changes are pending. <br>
+    <span class="c4">Refresh:</span> Refreshes the panel. Should
+    normally not be needed. Only available, if no changes are pending. <br>
+    <br>
+    <span class="c4">Window properties:</span> Opens the <a href="#Window_properties_dialog">window
+
+
+
+
+      properties dialog</a>. Only available, if no changes are pending
+    and only for the free floating window. <br>
+    <span class="c4">Help:</span> Opens this page. <br>
+    <br>
+    <span class="c4">Apply:</span> Applies the pending changes to the
+    files. Pressing ENTER will do the same. Only available, if changes
+    are pending. <br>
+    <span class="c4">Revert:</span> Reverts the pending changes.
+    Pressing ESC will do the same. Only available, if changes are
+    pending. <br>
+    <br>
+    <h4 class="c5"><a id="Options_dialog">Options dialog</a> </h4>
+    <img src="png/OptionsDialog.png">
+    <br>
+    <br>
+    <span class="c3">Presets:</span> Define a preset of options which
+    can be activated by the conponent's context menu. <br>
+    <br>
+    <span class="c3">New:</span> Create a new preset <br>
+    <br>
+    <span class="c3">Delete:</span> Delete the active preset <br>
+    <br>
+    <span class="c3">Rename:</span> Rename the active preset <br>
+    <br>
+    <span class="c3">Metadata field:</span> Define the metadata field,
+    which you want to maintain. <br>
+    <br>
+    <span class="c3">Tags:</span> Define the different values, which are
+    shown in the list for the metadata field. <br>
+    <br>
+    <span class="c3"><a id="Sort_list_option">Sort list</a></span>
+    Choose, if the list should be automatically sorted. This option is
+    also available by the component's context menu. <br>
+    <br>
+    <span class="c3"><a id="Scan_library_option">Scan library for more
+        tags in fields:</a></span> Choose, if there should be added
+    additionally values to the list, which are present in the library
+    but not in the list. You can specify the fields (separated by
+    semicolon), which should be used while scanning. For example specify
+    <span class="c4">artist;album artist</span>, if the active metadata
+    field is <span class="c4">artist</span>. If no field is specified,
+    the active metadata field is used. This option is also available by
+    the component's context menu. <br>
+    <br>
+    <span class="c3"><a id="Filter_on_focused_tags_option">Filter on
+        focused tags:</a></span> Specify the fields on which the list of
+    values should be filtered based on the active focused item, if any.
+    Example: <br>
+    <br>
+    Metadata field: <span class="c4">subgenre</span> <br>
+    Filter on focused tags: <span class="c4">genre</span> <br>
+    Value of the focused item for genre: <span class="c4">Jazz</span> <br>
+    Result: only the subgenres like <span class="c4">Vocal Jazz</span>
+    which belongs to <span class="c4">Jazz</span> are displayed in the
+    list of values, but not for example <span class="c4">Thrash Metal</span>
+    which belongs to <span class="c4">Heavy Metal</span>. <br>
+    <br>
+    More than one filter field can be specified by separating them by
+    semicolons. If this options is enabled, the scan library option is
+    always enabled. This option is also available by the component's
+    context menu, if the filter field contains an entry. <br>
+    <br>
+    Note: The values in the tags field will be overwritten automatically
+    by the filtered values. <br>
+    <br>
+    <span class="c3"><a id="Tag_with_same_value_option">Tag with same
+        value from:</a></span> Define a title format expression, which
+    lets you tag the active selection with the value from the library
+    with the most occurrences for this expression. Example: <br>
+    <br>
+    Metadata field: <span class="c4">genre</span> <br>
+    Tag with the same value from: <span class="c4">%artist%</span> <br>
+    Value for artist (each selected item in the playlist will be
+    processed separately): <span class="c4">Metallica</span> <br>
+    Genres for Metallica in the library: <span class="c4">Heavy Metal
+      (10 items), Thrash Metal (50 items)</span> <br>
+    Result: the active selection will be tagged for genre with <span class="c4">Thrash Metal</span>. <br>
+    <br>
+    <span class="c3">Global colors and fonts:</span> If checked, the
+    global ColumnsUI colors and fonts will be used for the panel. <br>
+    <br>
+    <span class="c3">Text font:</span> Choose the font for the status
+    area, the rating buttons and the action buttons. <br>
+    <br>
+    <span class="c3">List font:</span> Choose the font for the list and
+    the edit boxes. <br>
+    <br>
+    <span class="c3">Text color:</span> Choose the text color for the
+    status area, the rating buttons and the action buttons. <br>
+    <br>
+    <span class="c3">List color:</span> Choose the text color for the
+    list and the edit boxes. <br>
+    <br>
+    <span class="c3">Back color:</span> Choose the background color for
+    the panel. <br>
+    <br>
+    <span class="c3">List back color:</span> Choose the background color
+    for the list and the edit boxes. <br>
+    <br>
+    <span class="c3">Edge style:</span> Choose an edge style for the
+    panel. <br>
+    <br>
+    <span class="c3">Doubleclick action:</span> Define, if the content
+    of the playlist is replaced or if items are added to the playlist,
+    when doubleclicking on an item j the list of values. All library
+    entries with the same value as the doubleclicked one for the current
+    metadata field will be added to the playlist. <br>
+    <br>
+    <span class="c3">Playlist name:</span> Define a name for the
+    playlist, which is used, when doubleclicking on an item in the list
+    of values. If no name is given, the name of the item in the list is
+    used. <br>
+    <br>
+    <span class="c3">Sort order:</span> Define the sort order for adding
+    the library entries to the playlist. <br>
+    <br>
+    <h4 class="c5"><a id="Window_properties_dialog">Window properties
+        dialog</a> </h4>
+    <img src="png/WindowPropertiesDialog.png">
+    <br>
+    <br>
+    <span class="c3">Window name:</span> Define the name for the free
+    floating window. It will be used as the playlist's context menu
+    entry. <br>
+    <br>
+    <span class="c3">Persistent:</span> If selected, the window will be
+    made persistent between foobar2000 sessions. Also, the window will
+    only be hidden by performing a closing action like using ALT+F4 or
+    pressing the close button. <br>
+    <br>
+    <h4 class="c5">Advanced options</h4>
+    <span class="c3">Enable console output:</span> Enables spamming the
+    console with statistic information. <br>
+    <br>
+    <span class="c3">Warn before updating of more than N items (0=off):</span>
+    Specify the maximum number of items to be updated without a warning
+    dialog. No warning dialog will be shown for the "Tag with same
+    value" functionality, anyway. 
+  </body>
+</html>

@@ -1,0 +1,80 @@
+﻿===========================================================================
+License for WSH Panel Mod
+
+Public Domain
+---------------------------------------------------------------------------
+
+===========================================================================
+License for WSH Panel
+
+何も制限しません。改変、再頒布など、ご自由に使ってください。
+---------------------------------------------------------------------------
+
+===========================================================================
+License for Scintilla and SciTE
+
+Copyright 1998-2003 by Neil Hodgson <neilh@scintilla.org>
+
+All Rights Reserved 
+
+Permission to use, copy, modify, and distribute this software and its 
+documentation for any purpose and without fee is hereby granted, 
+provided that the above copyright notice appear in all copies and that 
+both that copyright notice and this permission notice appear in 
+supporting documentation. 
+
+NEIL HODGSON DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS 
+SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY 
+AND FITNESS, IN NO EVENT SHALL NEIL HODGSON BE LIABLE FOR ANY 
+SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES 
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, 
+WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER 
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE 
+OR PERFORMANCE OF THIS SOFTWARE. 
+---------------------------------------------------------------------------
+
+===========================================================================
+License for box blur filter
+
+Copyright 2006 Jerry Huxtable
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+---------------------------------------------------------------------------
+
+===========================================================================
+License for CPropertyList - A Property List control
+
+Written by Bjarke Viksoe (bjarke@viksoe.dk)
+Copyright (c) 2001-2003 Bjarke Viksoe.
+  Thanks to Pascal Binggeli for fixing the disabled items.
+  Column resize supplied by Remco Verhoef, thanks.
+  Also thanks to Daniel Bowen, Alex Kamenev and others for fixes.
+
+This code may be used in compiled form in any way you desire. This
+source file may be redistributed by any means PROVIDING it is
+not sold for profit without the authors written consent, and
+providing that this notice and the authors name is included.
+
+This file is provided "as is" with no expressed or implied warranty.
+The author accepts no liability if it causes any damage to you or your
+computer whatsoever. It's free, so don't hassle me about it.
+---------------------------------------------------------------------------
+
+===========================================================================
+License for Text Designer Outline Text Library
+
+Copyright (c) 2009 Wong Shao Voon
+
+The Code Project Open License (CPOL)
+http://www.codeproject.com/info/cpol10.aspx
+---------------------------------------------------------------------------

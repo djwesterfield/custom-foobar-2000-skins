@@ -1,0 +1,3 @@
+Theme: DarkAvatar
+Artist: darkavatar
+Additional link: http://customize.org/foobar/skins/88920

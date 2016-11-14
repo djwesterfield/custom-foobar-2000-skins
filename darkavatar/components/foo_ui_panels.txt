@@ -1,0 +1,124 @@
+foo_ui_panels *BETA*
+
+The code used is identical to trackinfo_mod, with two additions:
+
+$panel(ID,Name,x,y,width,height,options)
+$glass(left,right,top,bottom) -> vista only. extends the "glass" margin.
+
+changes:
+
+0.13.7
+	+ export/import individual panel configs (not compatible with files created by early versions of panels ui)
+	+ some performance tweaks for transparent scpl
+	+ a button to execute commands (eg. EXEC:'http://www.google.com' or EXEC:$get(coverPath), etc)
+	+ cwb_hooks functions and variable will now work in track displays / main panels ui even with no track / when playback stopped.
+	+ %foobar_path%
+	+ button to display a playlist menu (PLAYLISTS-MENU)
+	+ button to display a sort/group presets menu (SORTGROUP-PRESETS-MENU)
+	+ some tweaks to the sort/group edit box to include layout selection. removed separate layout selector.
+	+ $settitle() to set the window title, and $settray() to set the tray tooltip
+
+0.13.6
+	+ sysfont-val (val can be caption, menu, message, smcaption, or status) to use the system default fonts. use a font size of 0 if you want to use the default font size and options as well. eg: $font(sysfont_menu,0,,syscol-8)
+	+ ability to hide child node is library filter. if "!null!" is used the child node is hidden. eg: $if2(%date%,!null!)
+
+0.13.5
+	+ some performance tweaks to improve scrolling speed in scpl
+	+ $fontexists(fontname) function
+	+ some other misc tweaks
+
+0.13.0
+	+ library filter tweaks
+	+ transparent background for scpl (scrolling will be slower)
+	+ transparent background for library filter & track displays.
+	+ new Library Filter defaults (hit reset page to get defaults)
+
+0.12.0
+	+ new "Library Filter" panel. a bit similar to Album List but with the ability to "and" and "not" nodes. also uses the current scpl sort/group settings when sending to playlist. use the sample "library.pp" layout file with a POPUP: to see how to customize.
+	+ button in settings dialog to clear PVARs
+
+0.11.0
+	+ window title updates on pause
+	+ new "track globals" which are also evaluated before sorting/grouping. keep this small and fast.
+	+ tweaked sort/group criteria to use new track globals
+	+ "Reset Page" in Panels UI preferences resets to defaults
+	+ new button POPUP:"layout file" to create a new panels ui window.
+
+0.10.0
+	+ window size/position stored in pui
+	+ FILTER: button sorts by current sort/group
+	+ tray context menu
+	+ SORTGROUP_PRESET:index button (where index is the number of the preset)
+	+ $sortgroup_preset(index) returns the name of the specified preset.
+	+ %sortgroup_preset_count% returns the number of presets
+	+ %sortgroup% to get the name of the current sort/group criteria
+	+ changed $playlistname() to %playlistname%
+	+ %sortgroup% returns the current sort/group.
+	+ %groupformat% (only vailid in SCPL "Group Display") to get the current group by string.
+	+ "Singles" layout is chosen as default. Use this + %groupformat% to handle differnt grouping criteria dynamically.
+	+ changed base path to be relative to layout folder. eg. if you have your pui in ..\foobar2000\PanelsUI\MyTheme\MyTheme.pui, then /images\myimage.jpg would be ..\foobar2000\PanelsUI\MyTheme\images\myimage.jpg
+	+ customizable double click / middle click actions
+	+ sort/group settings are remembered by playlist name and applied on playlist changes
+	+ misc bug fixes / tweaks
+
+0.9.2
+	+ misc bug fixes / tweaks
+	+ delay load uxtheme.dll to support win2k
+	+ $playlistname() to get the playlist name
+	+ $sortidx(name) returns the sort index or false if not sorted
+	+ sort/group presets in main menu (view / panels ui / sort\ group by)
+	+ $extra(FOOBAR2000_VERSION)
+
+0.9.0
+	+ new sorting/grouping system
+
+0.8.0
+	+ "windowsize" button will now work inside child track displays
+	+ new user globals / layout globals will be run before all title formatting in TrackDisplay / SCPL. 
+		layout globals will change between layouts and are saved in the .pui, while user globals stay the same for all layouts.
+	+ various bug fixes / improvements
+
+0.7.5
+	+ tooltips for buttons. (add TOOLTIP:mytooltip or TOOLTIP:"my tooltip" to override the default)
+	+ free cached images if not used for a while
+	+ options for WINDOWSIZE to set anchor points (eg: WINDOWSIZE:x:y:LEFT:TOP, WINDOWSIZE:x:y:RIGHT:BOTTOM, etc)
+
+0.7.0
+	+ multiple buttons over same area can be executed
+	+ move window by click & drag on empty area
+	+ button to set window size: WINDOWSIZE:width:height
+	+ moved location of PanelsUI subfolder from profile directory to foobar directory
+	+ "context-selected" and "context-playing" options for buttons
+	+ various bug fixes / improvements
+
+0.6.0
+	+ misc fixes / changes / improvements
+	+ always on top option
+	+ $eval() function to evaluate math (eg $eval(6+3*2) = 12). Valid operators are + - / * @(modulus) {}(instead of parenthesis)
+
+0.5.0
+	+ misc improvements
+
+0.4.0
+	+ bug fixes / improvements
+
+0.3.0
+	+ button commands can now accept the "full path" of commands (eg View/Console)
+	+ "MENU" button command to popup the menu
+	+ added scintilla edit box
+	+ fix for pvars not working with no track
+	+ tray icon
+
+0.2.0
+	+ global titleformatting hook for pvars so that they can be set/accessed anywhere
+	+ combined scpl / trackinfo mod / panels ui into one dll
+	+ renamed Track info mod -> Track Display, Single Column Playlist View -> Single Column Playlist
+	+ Track Display doesn't draw the background color anymore (defaults to black). use a $drawrect to draw background
+	+ various fixs / improvements
+
+
+0.1.5
+	+ fixed background drawing on panels
+	+ keyboard shortcuts
+	+ display list of available panels on startup to the console
+	+ better default layout
