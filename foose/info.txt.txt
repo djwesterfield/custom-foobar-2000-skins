@@ -1,0 +1,3 @@
+Theme: foose
+Artist: PureMusic
+Additional link: http://customize.org/foobar/skins/65670306
