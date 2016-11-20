@@ -1,0 +1,3 @@
+Theme: Simple Skin Foobar2000
+Artist: bogradpc
+Additional link: http://customize.org/foobar/skins/67558
