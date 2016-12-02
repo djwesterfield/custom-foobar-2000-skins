@@ -1,0 +1,6 @@
+Het is mogelijk de indeling van de skin aan te passen. 
+Dan kan nodig zijn doordat het niet goed aanpast aan de grootte van je beeldscherm.
+
+Druk in je scherm op rechter muisknop en ga naar: splitter settings. Nu zie je alle panels die actief zijn. Bij forced layout kan je de plaats ven de panels bepalen.
+
+Succes!

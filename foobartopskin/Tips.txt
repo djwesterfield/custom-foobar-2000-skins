@@ -1,0 +1,3 @@
+Voor een goed werking van de lyrics moet je even de downloadopties aanpassen onder: preferences - tools - lyric show panel - internet 
+Je kan je mediabestande toevoegen bij media library.
+Om de album cover weer te laten geven moet je het bestand "front" noemen en in de map plaatsen waar de nummers in staan.

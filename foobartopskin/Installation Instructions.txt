@@ -1,0 +1,13 @@
+Instructions:
+
+Installeer foobar2000_v1.0 (full version)
+
+1. Merge the components directory in the download with your current components directory in your Foobar2000 folder (knippen en plakken, niet Kopiëren)
+2. Drop the .fcl file and the images folder in the root of your Foobar2000 folder. Merge images folder if necessary.
+3. Open Foobar2000 and press Control+P to open Preferences.
+4. Make sure you're using Columns_UI. (Click Display, User Interface Module should say Columns UI.)
+5. Click Columns UI under Display, and then click Import under "FCL importing and exporting." Browse to your Foobar2000 folder and import topskin.fcl.
+6. Go back to Preferences (Control+P) and click "Extended Variables" under Tools, and click Add. Under name, put "eigen_bg_color" (no quotes) and under value, put "025-025-028-255" (no quotes.)
+
+Seekbar code is included in a separate text file just in case.
+
