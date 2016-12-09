@@ -1,0 +1,3 @@
+Theme: "Vista" panels
+Artist: hotsoda
+Additional link: http://customize.org/foobar/skins/50669
