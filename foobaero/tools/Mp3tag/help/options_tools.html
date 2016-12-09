@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - Configuration &gt; Tools" />
+	<meta name="Keywords" content="" />
+	<title>Mp3tag Help - Configuration &gt; Tools</title>
+	<link rel="stylesheet" type="text/css" href="content.css" />
+</head>
+<body>
+	<div id="wrap">
+	<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+	<div>
+		
+		<h1><a href="options.html" title="Back to Configuration overview...">Configuration</a> &gt; Tools</h1>
+		
+		With this dialog you can specify external applications to work directly
+		from Mp3tag's main window via the context-menu of the file view. You can
+		create 10 external applications here.
+		
+		<h2>Name</h2>
+		Name of tool. This name will show up as menu item in the context-menu of the file view.
+		
+		<h2>Path</h2>
+		Full file path to the external application.
+		
+		<h2>Parameter</h2>
+		<p>Optional command line parameters. You can use the following placeholders:</p>
+		<table>
+			<tr><td><code>%_path%</code></td><td>Long filename</td></tr>
+			<tr><td><code>%_filename_ext%</code></td><td>Short filename</td></tr>
+			<tr><td><code>%_filename%</code></td><td>Short filename without extension</td></tr>
+			<tr><td><code>%_filename_rel%</code></td><td>Relative file path</td></tr>
+			<tr><td><code>%_directory%</code></td><td>Directory</td></tr>
+			<tr><td><code>%_folderpath%</code></td><td>Folderpath</td></tr>
+			<tr><td><code>%_folderpath_rel%</code></td><td>Relative folderpath</td></tr>
+		</table>
+
+		<h2>for all selected files</h2>
+		By enabling this option, Mp3tag will run the tool for every selected file.
+		
+		<div class="note"><div class="noteh">Examples</div><div class="noteb">
+			<p>
+				Please read <a href="http://forums.mp3tag.de/index.php?showtopic=979">this topic</a>
+				from the <a href="http://forums.mp3tag.de/index.php?showforum=12">Frequently Asked Questions</a>
+				for sample tool configurations.
+			</p>
+		</div></div>
+		
+		<h2>Default tool</h2>
+		If you want Mp3tag to start a special program at double clicks, you can select one
+		of the tools from the dropdown list.
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>

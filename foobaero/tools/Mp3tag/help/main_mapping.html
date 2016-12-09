@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - User-defined Tag Field Mappings" />
+	<meta name="Keywords" content="" />
+	<title>Mp3tag Help - User-defined Tag Field Mappings</title>
+	<link rel="stylesheet" type="text/css" href="content.css" />
+</head>
+<body>
+	<div id="wrap">
+		<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+		<div>
+		
+		<h2>User-defined field mappings</h2>
+		<p>
+		    Mp3tag displays tag fields either directly with their corresponding name from
+		    the files (e.g., for files with APEv2 tags like Musepack or VorbisComments like
+		    OGG and FLAC) or uses a <a href="main_tags.html">fixed mapping</a> from format-specific 
+		    names to human-readable names (e.g., for ID3v2 identifiers or MP4 atoms). For example,
+		    the ID3v2 field TPE1 is mapped to ARTIST in Mp3tag.
+		</p>
+		<p> 
+		    You can customize mappings from Mp3tag's internal field name to
+		    a user-defined field name in case you need to make field names
+		    consistent across different types of tags (e.g., BAND in ID3v2 and 
+		    ALBUM ARTIST in FLAC) via 'Options > Tags > Mapping'. There you can
+		    create mappings for a specific tag type (APEv2, ID3v2, MP4, VorbisComment or WMA)
+		    and provide a Source name (Mp3tag's name) and a Target name (your
+		    preferred field name).<br />
+		    After reading tags from files, Mp3tag translates all source field names
+		    to their respective target (and vice-versa when writing tags).
+		</p>
+		<p>
+		    Imagine you want to use one field name BAND for album artist regardless of
+		    whether you are using MP3s (which already have BAND as Mp3tag's name for album artist)
+		    or FLACs (which have ALBUM ARTIST or ALBUMARTIST or even another variant). To
+		    create this unique field that can be used accross the different formats, you need
+		    to create a new mapping for VorbisComment (since FLAC files have VorbisComments) and
+		    provide ALBUM ARTIST as Source (it is the name displayed in Mp3tag so far) and BAND as
+		    Target (this is the field name you like to use). When you now reload the files, you will
+		    notice that instead of ALBUM ARTIST the field is now displayed as BAND and you can
+		    use this in format strings and everywhere else without differentiating between
+		    tag formats.
+		</p>
+		<p>
+		    »But what happens when I save the tags?« you ask. Mp3tag then applies the mapping
+		    in the reverse direction. So any field that uses the name provided as Target gets 
+		    translated to the corresponding Source field name. It's also possible to map
+		    multiple Source fields to one Target (e.g., ALBUM ARTIST and ALBUMARTIST to BAND).
+		    Please note that this implies that all Source fields are written on tag updates.
+		    Mapping one Source field to multiple Target fields is not supported.
+		</p>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>

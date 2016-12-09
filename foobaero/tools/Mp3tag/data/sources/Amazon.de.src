@@ -1,0 +1,175 @@
+# Mp3tag parsing for Amazon Web Service (v2.36 and above)
+#
+# Web source created and maintained by dano
+# Last modified 2006-05-22
+#
+# minor additions by Florian and Dave Reid
+#
+# Speichern Sie diese Datei im Mp3tag Datenverzeichnis unter
+# C:\Dokumente und Einstellungen\*Benutzername*\Anwendungsdaten\Mp3tag\data\sources
+#
+#
+#
+[Name]=Amazon.de
+[BasedOn]=http://webservices.amazon.de
+[IndexUrl]=http://webservices.amazon.de/onca/xml?Service=AWSECommerceService&Operation=ItemSearch&SearchIndex=Music&Keywords=%s&ItemPage=1&ResponseGroup=ItemAttributes,Small
+[AlbumUrl]=http://webservices.amazon.de/onca/xml?Service=AWSECommerceService&Operation=ItemLookup&ItemId
+[WordSeperator]=%20
+[IndexFormat]=%_url%|%_preview%|%Interpret%|%Label%|%Datum%|%Album%
+[SearchBy]=%album%
+
+[ParserScriptIndex]=...
+# ###################################################################
+# This script parses the webpage for all releases
+# by this albumname.
+#
+# The output format is defined by IndexFormat above, which
+# is used by the selection dialog
+# ###################################################################
+regexpreplace "<Binding>[^<]+</Binding>" ""
+do
+	findinline "<Item>"
+	say "="
+	findinline "<ASIN>"
+	sayuntil "</ASIN>"
+	say "&ItemPage=1&ResponseGroup=ItemAttributes,Small,Tracks,Images"
+	say "|"
+	say "http://www.amazon.de/exec/obidos/ASIN/"
+	movechar -10
+	sayuntil "</ASIN>"
+	say "/poetri-21"
+	say "|"
+	
+	# Artist
+	findinline "<ItemAttributes>"
+	if "<Artist>"
+		findinline "<Artist>"
+		sayuntil "</Artist>"
+	else
+		if "<Creator"
+			findinline "<Creator"
+			findinline ">"
+			sayuntil "</Creator>"
+		else
+			if "<Author>"
+				findinline "<Author>"
+				sayuntil "</Author>"
+			endif
+		endif
+	endif
+	say "|"
+	
+	# Publisher
+	sayregexp "(?<=<Label>)[^<]+(?=</Label>)" ", " "</ItemAttributes>"
+	say "|"
+	
+	# Released	
+	sayregexp "(?<=<ReleaseDate>)[-0-9]{4,10}(?=</ReleaseDate>)" ", " "</ItemAttributes>"
+	say "|"
+	
+	#Album
+	findinline "<Title>"
+	sayuntil "</Title>"
+	
+	saynewline
+	findinline "</Item>"
+while "<Item>"
+
+[ParserScriptAlbum]=...
+# ###################################################################
+# This script parses the albums page for all common information.
+#
+# The current output variable is set via the outputto command
+# All these fields are used by the confirm online information dialog
+# ###################################################################
+regexpreplace "<Binding>[^<]+</Binding>" ""
+# CoverURL
+outputto "coverurl"
+findinline "<LargeImage>" 1 1
+movechar -12
+if "<LargeImage>"
+	findinline "<URL>"
+	sayuntil "</URL>"
+else
+	findline "<ItemAttributes>"
+	findinline "<MediumImage>" 1 1
+	movechar -13
+	if "<MediumImage>"
+		findinline "<URL>"
+		sayuntil "</URL>"
+	else
+		findline "<ItemAttributes>"
+	endif
+endif
+
+# Artist
+findinline "<ItemAttributes>"
+outputto "Artist"
+if "<Artist>"
+	findinline "<Artist>"
+	sayuntil "</Artist>"
+else
+	if "<Creator"
+		findinline "<Creator"
+		findinline ">"
+		sayuntil "</Creator>"
+	else
+		sayregexp "(?<=<Author>)[^<]+(?=</Author>)" ", " "</ItemAttributes>"
+	endif
+endif
+
+# Publisher
+findinline "<Label>" 1 1
+movechar -7
+if "<Label>"
+	outputto "Publisher"
+	findinline "<Label>"
+	sayuntil "</Label>"
+else
+	findline "<ItemAttributes>"
+endif
+
+# Year
+findinline "<ReleaseDate>" 1 1
+movechar -13
+if "<ReleaseDate>"
+	outputto "Year"
+	findinline "<ReleaseDate>"
+	saynextnumber
+else
+	findline "<ItemAttributes>"
+	findinline "<PublicationDate>" 1 1
+	movechar -17
+	if "<PublicationDate>"
+		outputto "Year"
+		findinline "<PublicationDate>"
+		saynextnumber
+	else
+		findline "<ItemAttributes>"
+	endif
+endif
+
+# Album
+outputto "Album"
+findinline "<Title>"
+sayuntil "</Title>"
+
+# Tracks
+findinline "<Tracks>" 1 1
+movechar -8
+if "<Tracks>"
+	outputto "tracks"
+	do	
+		findinline "<Track Number="
+		findinline ">"
+		sayuntil "</Track>"
+		say "|"
+		findinline "</Track>"
+		if "</Disc>"
+			findinline "<Disc Numbe" 1 1
+			if "r="
+				findinline ">"
+			endif
+		endif
+	while "<Track "
+endif

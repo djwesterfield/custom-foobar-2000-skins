@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en/ -->
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - Scripting functions" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="content.css" />
+	<title>Mp3tag Help - Scripting functions</title>
+</head>
+<body>
+	<div id="wrap">
+		<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+		<div>
+		
+		<h1>Scripting functions</h1>
+			<p>
+			Mp3tag features a set of built-in scripting functions which can be used at various places through the program.
+			These functions are offering advanced display and converting options and giving you the power to get the most
+			out of Mp3tag.
+			</p>
+			
+			<p>
+			I got the idea for implementing the scripting functions from my favourite audio player <a href="http://www.foobar2000.org">foobar2000</a>.
+			I first used a different syntax but now the syntax of both programs should be (almost) compatible.
+			</p>
+			
+			<p>
+			The scripting functions are available at these parts of Mp3tag:
+			</p>
+			<ul>
+				<li><a href="main_viewcolumns.html">File view</a></li>
+				<li><a href="main_export.html">Export</a></li>
+				<li><a href="main_converter.html#ttf">Converter Tag - Filename</a></li>
+				<li><a href="main_converter.html#ftf">Converter Filename - Filename</a></li>
+				<li><a href="options_format.html#format">Action, Format value</a></li>
+				<li><a href="options_format.html#regexp">Action, Replace with regular expressions</a></li>
+				<li><a href="options_playlist.html#playlist">Playlist</a></li>
+			</ul>
+			
+			<p>
+			The following scripting functions are available:
+			</p>
+			
+			<div class="note"><div class="noteh">Replace</div><div class="noteb">
+			<p>
+			Command: <strong>$replace(string,from,to)</strong> or <strong>$replace(string,from1,to1,from2,to2,...)</strong><br />
+			Example: <code>$replace(%artist% - %album% - %track% - %title%,_,-)</code><br />
+			This example replaces all underscores to dashes. You can provide additional pairs of from/to as parameters.
+			</p></div></div>
+			
+			<div class="note"><div class="noteh">Remove invalid characters from file name/file paths</div><div class="noteb">
+			<p>
+			Command: <strong>$validate(filename,to)</strong><br />
+			Example: <code>$validate(%artist% - %album% - %track% - %title%,-)</code><br />
+			This example replaces all invalid characters (/?*"&lt;&gt;|:) to dashes.
+			</p></div></div>
+			
+			<div class="note"><div class="noteh">Case conversion <i>Normal</i></div><div class="noteb">
+			<p>
+			Command: <strong>$caps(string,...)</strong><br />
+			Example: <code>$caps(%artist% - %album% - %track% - %title%)</code><br />
+			This example converts the given string to normal case. The second parameter is optional and specifies additional characters that triggers upper case.<br />
+			<i><b>artist - ALBUM - 01 - tItle</b></i> converts to <i><b>Artist - Album - 01 - Title</b></i>
+			</p></div></div>
+			
+			<div class="note"><div class="noteh">Case conversion <i>Normal</i> (without changing uppercase characters)</div><div class="noteb">
+			<p>
+			Command: <strong>$caps2(string)</strong><br />
+			Example: <code>$caps2(%artist% - %album% - %track% - %title%)</code><br />
+			This example converts the given string to normal case without changing uppercase characters. The second parameter is optional and specifies additional characters that triggers upper case.<br />
+			<i><b>artist - ALBUM - 01 - tItle</b></i> converts to <i><b>Artist - ALBUM - 01 - TItle</b></i>
+			</p></div></div>
+			
+			<div class="note"><div class="noteh">Case conversion <i>Sentence</i></div><div class="noteb">
+			<p>
+			Command: <strong>$caps3(string)</strong><br />
+			Example: <code>$caps3(%artist% - %album% - %track% - %title%)</code><br />
+			This example converts the given string to first letter upper case. The second parameter is optional and specifies additional characters that triggers upper case.<br />
+			<i><b>artist - ALBUM - 01 - tItle</b></i> converts to <i><b>Artist - album - 01 - title</b></i>
+			</p></div></div>
+			
+			<div class="note"><div class="noteh">Case conversion <i>UPPER</i></div><div class="noteb">
+			<p>
+			Command: <strong>$upper(string)</strong><br />
+			Example: <code>$upper(%artist% - %album% - %track% - %title%)</code><br />
+			This example converts the given string to upper case.<br />
+			<i><b>artist - ALBUM - 01 - tItle</b></i> converts to <i><b>ARTIST - ALBUM - 01 - TITLE</b></i>
+			</p></div></div>
+			
+			<div class="note"><div class="noteh">Case conversion <i>lower</i></div><div class="noteb">
+			<p>
+			Command: <strong>$lower(string)</strong><br />
+			Example: <code>$lower(%artist% - %album% - %track% - %title%)</code><br />
+			This example converts the given string to lower case.<br />
+			<i><b>artist - ALBUM - 01 - tItle</b></i> converts to <i><b>artist - album - 01 - title</b></i>
+			</p></div></div>
+			
+			<div class="note"><div class="noteh">Pad decimal number with leading zeros</div><div class="noteb">
+			<p>
+			Command: <strong>$num(x,y)</strong><br />
+			Example: <code>$num(%track%,3)</code><br />
+			This example returns the track number with three digits.<br />
+			</p></div></div>
+			
+			<h2>Other functions</h2><br />
+			
+			<div class="note"><div class="noteh">String functions</div><div class="noteb">
+			<table cellspacing="0" cellpadding="0">
+			<tr>
+				<td><strong>$ansi(x)</strong></td>
+				<td>returns the string x converted to the system codepage. This is useful at renaming files to ensure compatibility with software which doesn't support Unicode.</td>
+			</tr>
+			<tr>
+				<td><strong>$char(x)</strong></td>
+				<td>returns Unicode character with code x.</td>
+			</tr>
+			<tr>
+				<td><strong>$fmtNum(x)</strong></td>
+				<td>formats number x with seperator for thousands according to current locale settings.</td>
+			</tr>
+			<tr>
+				<td><strong>$left(x,n)</strong></td>
+				<td>Leftmost n characters of text x.</td>
+			</tr>
+			<tr>
+				<td><strong>$len(x)</strong></td>
+				<td>Returns the length of string x.</td>
+			</tr>
+			<tr>
+				<td><strong>$mid(x,i,n)</strong></td>
+				<td>First n characters of text x, starting at character i. If n is ommited, the character on position i is returned.</td>
+			</tr>
+			<tr>
+				<td><strong>$ord(x)</strong></td>
+				<td>returns the code of character x.</td>
+			</tr>
+			<tr>
+				<td><strong>$repeat(a,n)</strong></td>
+				<td>Returns the string a n times.</td>
+			</tr>
+			<tr>
+				<td><strong>$regexp(what,expr,repl)</strong></td>
+				<td>Replaces the pattern specified by the regular expression expr in the string what by repl. The fourth optional parameter enables ignore case (1) or disables the ignore case setting (0). 
+				Please note that you have to escape comma and other special characters in expr (see end of this document).</td>
+			</tr>
+			<tr>
+				<td><strong>$reverse(what)</strong></td>
+				<td>Reverses the order of the characters in the given string.</td>
+			</tr>
+			<tr>
+				<td><strong>$right(x,n)</strong></td>
+				<td>Rightmost n characters of text x.</td>
+			</tr>
+			<tr>
+				<td><strong>$strchr(x,y)</strong></td>
+				<td>Finds the first occurrence of character y in string x.</td>
+			</tr>
+			<tr>
+				<td><strong>$strrchr(x,y)</strong></td>
+				<td>Finds the last occurrence of character y in string x.</td>
+			</tr>
+			<tr>
+				<td><strong>$strstr(x,y)</strong></td>
+				<td>Finds the first occurrence of string y in string x.</td>
+			</tr>
+			<tr>
+				<td><strong>$trim(x)</strong></td>
+				<td>trims all leading and trailing whitespaces from the string x. The optional second parameter specifies the character to trim.</td>
+			</tr>
+			</table></div></div>
+			
+			
+			<div class="note"><div class="noteh">Boolean functions</div><div class="noteb">
+			<table cellspacing="1" cellpadding="1">
+			<tr>
+				<td><strong>$and(x,y)</strong></td>
+				<td>returns true, if x and y are true.</td>
+			</tr>
+			<tr>
+				<td><strong>$geql(x,y)</strong></td>
+				<td>returns true, if x is greater as or equal to y.</td>
+			</tr>
+			<tr>
+				<td><strong>$eql(x,y)</strong></td>
+				<td>returns true, if x equals y.</td>
+			</tr>
+			<tr>
+				<td><strong>$grtr(x,y)</strong></td>
+				<td>returns true, if x is greater as y.</td>
+			</tr>
+			<tr>
+				<td><strong>$if(x,y,z)</strong></td>
+				<td>if x is true, y is returned, otherwise z.</td>
+			</tr>
+			<tr>
+				<td><strong>$if2(x,y)</strong></td>
+				<td>if x is true, x is returned, otherwise y.</td>
+			</tr>
+			<tr>
+				<td><strong>$ifgreater(a,b,x,y)</strong></td>
+				<td>if number a is greater than number b, x is returned, otherwise y.</td>
+			</tr>
+			<tr>
+				<td><strong>$iflonger(a,b,x,y)</strong></td>
+				<td>if string a is longer than number b, x is returned, otherwise y.</td>
+			</tr>
+			<tr>
+				<td><strong>$isdigit(x)</strong></td>
+				<td>returns true if character x is a decimal number.</td>
+			</tr>	
+			<tr>
+				<td><strong>$leql(x,y)</strong></td>
+				<td>returns true, if x is lesser as or equal to y.</td>
+			</tr>
+			<tr>
+				<td><strong>$less(x,y)</strong></td>
+				<td>returns true, if x is lesser as y.</td>
+			</tr>
+			<tr>
+				<td><strong>$neql(x,y)</strong></td>
+				<td>returns true, if x not equal to y.</td>
+			</tr>
+			<tr>
+				<td><strong>$not(x)</strong></td>
+				<td>returns true, if x is false.</td>
+			</tr>
+			<tr>
+				<td><strong>$odd(x)</strong></td>
+				<td>returns true, if x is odd.</td>
+			</tr>
+			<tr>
+				<td><strong>$or(x,y)</strong></td>
+				<td>returns true, if x or y is true.</td>
+			</tr>
+			</table></div></div>
+			
+			<div class="note"><div class="noteh">Arithmetic functions</div><div class="noteb">
+			<table cellspacing="1" cellpadding="1">
+			<tr>
+				<td><strong>$add(x,y)</strong></td>
+				<td>adds y to x.<br /></td>
+			</tr>
+			<tr>
+				<td><strong>$div(x,y)</strong></td>
+				<td>divides x by y.</td>
+			</tr>
+			<tr>
+				<td><strong>$mod(x,y)</strong></td>
+				<td>returns the remainder of x divided by y.</td>
+			</tr>
+			<tr>
+				<td><strong>$mul(x,y)</strong></td>
+				<td>multiplies x by y.</td>
+			</tr>
+			<tr>
+				<td><strong>$rand()</strong></td>
+				<td>Returns a pseudorandom number &gt;= 0.</td>
+			</tr>
+			<tr>
+				<td><strong>$sub(x,y)</strong></td>
+				<td>substracts y from x.</td>
+			</tr>
+			
+			</table></div></div>
+			
+			<div class="note"><div class="noteh">Variable operations</div><div class="noteb">
+			<table cellspacing="1" cellpadding="1">
+			<tr>
+				<td><strong>$get(x)</strong></td>
+				<td>returns the value of the user-defined variable x. Only availabe at Export.</td>
+			</tr>
+			<tr>
+				<td><strong>$put(x,y)</strong></td>
+				<td>sets the value of the user-defined variable x to y and returns y. Only availabe at Export.</td>
+			</tr>
+			<tr>
+				<td><strong>$puts(x,y)</strong></td>
+				<td>sets the value of the user-defined variable x to y and returns nothing. Only availabe at Export.</td>
+			</tr>
+			</table></div></div>
+			
+			<div class="note"><div class="noteh">Metadata (including multiple tag fields)</div><div class="noteb">
+			<table cellspacing="0" cellpadding="0">
+			<tr>
+				<td><strong>$meta(x)</strong></td>
+				<td>returns all values   of field <i>x</i> (e.g. $meta(artist)). If multiple values of that field exist, they are separated with ", ".</td>
+			</tr>
+			<tr>
+				<td><strong>$meta(x,n)</strong></td>
+				<td>returns the nth value of field <i>x</i> (where n starts at 0, e.g. $meta(artist,1)).</td>
+			</tr>
+			<tr>
+				<td><strong>$meta_sep(x,sep)</strong></td>
+				<td>returns all values of field <i>x</i> $meta_sep(artist,; ). If multiple values of that field exist, they are separated with <i>sep</i>.</td>
+			</tr>
+			</table></div></div>
+			
+			
+			<h2>Characters with special functionality</h2>
+			
+			<table cellspacing="5" cellpadding="5">
+			<tr>
+				<td><code>[...]</code></td>
+				<td>The contents of brackets are displayed only if at least one of the placeholders used inside the brackets has been found.</td>
+			</tr>
+			<tr>
+				<td><code>'</code></td>
+				<td>Outputs raw text without parsing. This will output the contained string and ignore all reserved characters.
+				If you want to output this character please use <code>''</code>.</td>
+			</tr>
+			<tr>
+				<td><code>[]$%</code></td>
+				<td>You have to put the single quote around these reserved characters if you want to use them unparsed. The same applies to parentheses in parameters to scripting functions.</td>
+			</tr>
+			</table>
+	<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>

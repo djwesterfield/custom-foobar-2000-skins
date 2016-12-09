@@ -1,0 +1,294 @@
+# ###################################################################
+# Mp3tag (v2.39+) parsing for discogs.com
+#
+# Search by ARTIST
+# This file should be in your sources directory
+# On Windows XP it's 
+# C:\Documents and Settings\*username*\Application Data\Mp3tag\data\sources
+# 
+#   v1.12
+# Modifications:
+#   2005-11-22: updated
+#   2006-05-23: updated
+#   2007-08-11: updated for utf-8 and url encoded urls
+#   2007-08-31: updated
+#   2008-11-08: updated
+#   2009-05-10: updated
+#   2009-07-11: updated
+#   2009-09-30: updated
+#	2009-12-01: updated
+#
+# ###################################################################
+
+[Name]=Discogs
+[BasedOn]=www.discogs.com
+[IndexUrl]=http://www.discogs.com/artist/
+[AlbumUrl]=http://www.discogs.com
+[WordSeperator]=+
+[IndexFormat]=%_url%|%Album%|%Type%|%Label%|%Year%
+[SearchBy]=%artist%
+[Encoding]=url-utf-8
+
+[ParserScriptIndex]=...
+# ###################################################################
+# This script parses the artist's page for all releases
+# by this artist.
+#
+# The output format is defined by IndexFormat above, which
+# is used by the selection dialog
+# ###################################################################
+
+# Uncomment the following line if you want to write some debug output
+#debug "on" "c:\zDebug\debug_discogs_A.html" "10"
+
+findline "Releases:"
+
+do
+    findline "<tr class=\"r_tr r"
+	findline "<a href=\""
+	findinline "<a href=\""
+	sayuntil "\""
+	say "|"
+	
+	# Album
+	findinline ">"
+	sayuntil "<"
+	say "|"
+	
+	# Type
+	findinline "("
+	sayuntil ")"
+	say "|"
+	
+	# Label
+	moveline 2	
+	joinuntil "</td>"
+	findinline ">" 2
+	sayuntil "<"
+	say "|"
+	
+    # Year	
+    moveline 1
+	sayregexp "\d{4}" ", "
+	
+	saynewline
+	
+	findline "</tr>"
+	moveline 1 1
+	ifnot "<tr class"
+	   moveline 3 1
+	endif
+	unspace
+	
+while "<tr class" 1500
+
+[ParserScriptAlbum]=...
+# ###################################################################
+# This script parses the albums page for all common information.
+#
+# The current output variable is set via the outputto command
+# All these fields are used by the confirm online information dialog
+# ###################################################################
+
+# Uncomment the following line if you want to write some debug output
+#debug "on" "c:\\debug_discogsB.html"
+
+# Discogs_Release_ID
+outputto "Discogs_Release_ID"
+findline "release_id="
+findinline "release_id="
+saynextnumber
+
+# Coverurl
+outputto "coverurl"
+findline "class=\"image"
+joinuntil "</div>"
+findinline "img src=" 1 1
+if "\""
+    movechar 1
+    sayuntil "-150-"  
+    movechar 4
+    sayuntil "\""  
+endif
+
+# Album
+outputto "Album"
+findline "class=\"profile"
+findline "href=\"/artist"
+findinline "</a>"
+findinline " - "
+sayuntil "</h1>"
+
+# Publisher
+outputto "Publisher"
+findline "class=\"head\">Label:"
+killtag "*"
+regexpreplace "^\s+Label:\s+" ""
+regexpreplace "\s,\s{2,}" ", "
+sayrest
+
+# Catalog#:
+outputto "Discogs_Catalog"
+findline "class=\"head\">Catalog#:"
+findinline "content\">"
+sayuntil "</div>"
+
+# Mediatype
+outputto "Mediatype"
+findline "class=\"head\">Format:"
+moveline 1 1
+joinuntil "</div>"
+regexpreplace "<[^>]+>" ""
+regexpreplace "^\s{0,}Format:\s+" ""
+regexpreplace "\s+,\s{1,}" ", "
+regexpreplace "\s+" " "
+sayrest
+
+# Country
+outputto "Discogs_Country"
+findline "class=\"head\">Country:"
+findinline "content\">"
+sayuntil "</div>"
+	
+# Year
+outputto "Year"
+findline "class=\"head\">Released:"
+findinline "content\">"
+sayregexp "\d\d\d\d(?=<)" ""
+
+# Genre (only 1)
+outputto "Genre"
+findline "Genre:"
+moveline 1 1
+joinuntil "</div>"
+killtag "*"
+regexpreplace "\s+" " "
+regexpreplace "\s+$" ""
+regexpreplace ",\s\w+$" ""
+sayrest
+
+# Style
+outputto "Style"
+findline "Style:"
+moveline 1 1
+joinuntil "</div>"
+killtag "*"
+regexpreplace "\s+" " "
+sayrest
+
+
+gotoline 2
+findline "<h3>Tracklist</h3>"
+findline "class=\"track_pos"
+findline "<td" 2
+findinline "<td"
+
+if " "
+	#################################################################  
+    # VA-mode
+	gotoline 2
+	
+	# Album Artist / BAND
+	findline "<title>"
+	findinline "<title>"	    
+    outputto "BAND"
+    joinuntil "</title>"
+    regexpreplace "\s{2,}" " "
+    regexpreplace "\* - " " - "
+    findinline "<title>"
+    sayuntil " - "
+    
+    
+    # Artist & Tracks
+    findline "<h3>Tracklist</h3>"
+    findline "class=\"track_pos\">"
+    do
+        moveline 3
+        
+         # Artist
+        outputto "Artist"
+        unspace
+        if "<td class=\"track_artists"
+            joinuntil "</td>"
+            replace "&nbsp;-&nbsp;" ""
+            replace "</a>*" ""
+            killtag "*"
+            regexpreplace "\s{2,}" " "
+            replace "|" "/"
+            sayrest
+        endif
+        say "|"
+        
+        findline "<td"
+        
+         # Title
+        outputto "Tracks"
+        unspace        
+        if "<td class=\"track_title"
+            killtag "*"
+            regexpreplace "\s\(\d?\d:\d\d\)" ""
+            replace "|" "/"
+            sayuntil "</td>"
+		endif
+        say "|"
+        
+        # _Length
+        moveline 1 1
+        findinline "<td class=\"track_duration\">" 1 1
+        ifnot "</td>"
+            outputto "_LENGTH"
+            sayuntil "</td>"
+            say "|"
+        endif
+        
+        findline "<td class=\"track_pos" 1 1
+        unspace
+    while "<td class=\"track_pos"
+    # End of VA
+    # ###############################################################
+
+else
+	gotoline 2
+	
+	# Artist
+	findline "<title>"
+	findinline "<title>"	    
+    outputto "Artist"
+    joinuntil "</title>"
+    regexpreplace "\s{2,}" " "
+    regexpreplace "\* - " " - "
+    replace "|" "/"
+    findinline "<title>"
+    sayuntil " - "
+
+    # Tracks
+    findline "<h3>Tracklist</h3>"
+    findline "class=\"track_pos\">"
+    do
+        moveline 6
+        # Title
+        unspace
+        if "<td></td>" # emtpy table row!
+        	exit
+        else
+            # Titles
+            outputto "Tracks"
+        	killtag "*"
+        	regexpreplace "\s\(\d?\d:\d\d\)" ""
+			sayuntil "</td>"
+        	say "|"
+        	
+        	# _Length
+            moveline 1 1
+            findinline "<td class=\"track_duration\">" 1 1
+            ifnot "</td>"
+                outputto "_LENGTH"
+                sayuntil "</td>"
+                say "|"
+            endif
+            
+        	findline "<td class=\"track_pos" 1 1
+        	unspace
+        endif
+    while "<td class=\"track_pos"
+endif

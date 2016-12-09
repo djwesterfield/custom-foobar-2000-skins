@@ -1,0 +1,380 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en/ -->
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - Web Sources Framework" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="content.css" />
+	<title>Mp3tag Help - Web Sources Framework</title>
+</head>
+<body>
+	<div id="wrap">
+		<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+		<div>
+		
+		<h1>Web Sources Framework</h1>
+			
+			<p>
+			Mp3tag features a internal Web Sources Framework which is parametrised through web sources description files.
+			Using these description files, you can import tag data from theoretically every web site which displays artist/album information via HTML (no JavaScript, ActiveX).
+			You can find many examples at the <a href="http://forums.mp3tag.de/index.php?showtopic=1794">Web Sources Archive</a> on the Mp3tag forums.
+			</p>
+			
+			<h2>Definition of the file format used with web source description files</h2>
+
+			<p>
+			<strong>[Name]</strong><br />
+			Name of the web source, e.g. Discogs.com
+			</p>
+
+			<p>
+			<strong>[BasedOn]</strong><br />
+			Base URL of the web source, e.g. http://www.discogs.com
+			</p>
+
+			<p>
+			<strong>[IndexUrl]</strong><br />
+			Search URL (%s will be replaced by the search criteria entered by user), e.g. http://www.discogs.com/artist/%s
+			</p>
+
+			<p>
+			<strong>[AlbumUrl]</strong><br />
+			Result base URL (URL result from first search pass will be appended), e.g. http://www.discogs.com
+			</p>
+
+			<p>
+			<strong>[WordSeperator]</strong><br />
+			Character/string used instead of blanks within the search criteria entered by the user, e.g. +
+			</p>
+
+			<p>
+			<strong>[IndexFormat]</strong><br />
+			Format string for splitting the output buffer from the first search pass into different fields. %_url% is needed, e.g. %_url%|%album%|%type%|%label%
+			</p>
+
+			<p>
+			<strong>[SearchBy]</strong><br />
+			Field(s) which are offered as search criteria by the web source, e.g. %artist%
+			</p>
+
+			<p>
+			<strong>[Encoding]</strong><br />
+			Encoding used for all urls. Can be utf-8, iso-8859-1, url, url-utf-8 or ansi (system codepage will be used).
+			</p>
+
+			<p>
+			<strong>[ParserScriptIndex]</strong><br />
+			This key contains a multi-line parser script (start with ...) which parses the search results page for different albums.
+			</p>
+
+			<p>
+			<strong>[ParserScriptAlbum]</strong><br />
+			This key contains a multi-line parser script (start with ...) which parses a web page found by the first search pass.
+			</p>
+			
+			<p>
+				<a class="index" href="index.html">Back to main page</a>
+			</p>
+		
+		</div>
+		
+		<div>
+
+			<h1>Parser Scripts</h1>
+			
+			<h2>How to Start</h2>
+
+			<p>First of all you need to find a way to identify the lines which contain the interesting 
+			bits of information, for example the year of a release. The Mp3tag parser sees output as 
+			lines and characters and you tell the parser how to move from the start to the places you 
+			want to display.<br />
+			Mp3tag uses a pointer which is positioned at the beginning of the file and which can be moved 
+			with several commands. So how do we move this pointer to the year displayed on a website?<br />
+			<br />
+			We can either move it down N lines or we can tell it to move down  until it finds the text &quot;Year:&quot;.  
+			To do the first we would either use the command <code>MoveLine N</code> (where N is the number of lines) or <code>GotoLine N</code> 
+			-- this either means go down seven lines from where you are or go to the Nth line from the top of the text.
+			To do the search, the command would be <code>FindLine &quot;Year:&quot;</code>,
+			which - well - finds the next line from where you are that contains the text &quot;Year:&quot;.
+			In all cases the pointer would be moved to the first character of the target line.   
+			From there we could tell the pointer to move N steps to the right (<code>MoveChar N</code>) or to move to 
+			the Nth character in the line (<code>GotoChar N</code>) or to position the pointer after the text 
+			&quot;Year:&quot; (<code>FindInLine &quot;Year:&quot;</code>). All of these commands would result in the 
+			pointer being moved to the first digit of the number of hidden files.  Please note the difference 
+			between the <code>FindLine</code> and <code>FindInLine</code> commands:  The earlier goes through lines 
+			from where you are to find a text and places the pointer at the beginning of the line, while the latter looks within 
+			the line where the pointer is and positions it after the found text.<br />
+			Now that we are where we want, we need tell Mp3tag to store the data. To do this, a <code>Say</code> command is 
+			used, but we have to find a way to tell it what to say and what not.  In this case we want to output the rest of the line
+			and so we use the <code>SayRest</code> command.  An alternative 
+			would be the <code>SayUntil</code> &quot; &quot; command, which would output everything until a space character is 
+			found.
+			</p>
+				
+				<p>
+				So, a script to display the year would look like this:<br />
+				<code>FindLine &quot;Year:&quot;<br />
+				FindInLine &quot;Year:&quot;<br />
+				SayNextNumber</code>
+				</p>
+
+				<p>
+				You will notice that the example used the Find-Commands rather than the Move- or Goto-Commands. 
+				Whenever you have a chance to use a Find command, please do so, because WWW pages tend to be changed.
+				Using a script that relies on Find-Commands is more likely to survive a change in the raw data than 
+				one that relies on absolute positions.
+				</p>
+
+
+				<h2>Debugging</h2>
+				<p>
+				Doing all this only theoretically can be a bit tricky and if you make an error counting lines or 
+				characters you might end up with quite unexpected results.  To check what the parser is doing, 
+				you can add a <code>Debug &quot;on&quot; &quot;debug.out&quot;</code> command to the top of your script. 
+				This will give you an output file which will show you step by step what the parser is doing and 
+				why you end up with a given output.<br />
+				Many times you will even want to start your script just with a Debug command, to see what data you 
+				actually get for parsing and before you build your script step by step.
+				</p>
+				
+				<p>
+					<a class="index" href="index.html">Back to main page</a>
+				</p>
+		
+			</div>
+			
+			<div>
+
+				<h1>List of Parser Commands</h1>
+
+<table>
+	<tr>
+		<td><h2>Command</h2></td>
+		<td><h2>Parameter(s)</h2></td>
+		<td><h2>Description</h2></td>
+	</tr>
+	
+	<tr>
+		<td>FindLine</td>
+		<td>Sn</td>
+		<td>Find line with first or Nth occurrence of S (starting from the current position)</td>
+	</tr>
+	
+	<tr>
+		<td>FindLineNoCase</td>
+		<td>Sn</td>
+		<td>Find line with first or Nth occurrence of S (ignoring case and starting from the current position)</td>
+	</tr>
+	
+	<tr>
+		<td>FindInLine</td>
+		<td>Sn</td>
+		<td>Find the next/Nth occurrence of S within the current line</td>
+	</tr>
+	
+	<tr>
+		<td>GotoChar</td>
+		<td>N</td>
+		<td>Skip to the Nth character in the current line</td>
+	</tr>
+
+    <tr>
+		<td>GotoLine</td>
+		<td>N</td>
+		<td>Go to Nth line (counting from top)</td>
+	</tr>
+	
+	<tr>
+		<td>MoveChar</td>
+		<td>N</td>
+		<td>Move right/left N characters</td>
+	</tr>
+
+	<tr>
+		<td>MoveLine</td>
+		<td>N</td>
+		<td>Move down/up N lines (starting from current position)</td>
+	</tr>
+
+	<tr>
+		<td>Say</td>
+		<td>S</td>
+		<td>Send S to output</td>
+	</tr>
+
+	<tr>
+		<td>SayUntil</td>
+		<td>S</td>
+		<td>Send everything until S to output</td>
+	</tr>
+	
+	<tr>
+		<td>SayUntilML</td>
+		<td>S</td>
+		<td>Send everything until S to output searching across multiple lines</td>
+	</tr>
+	
+	<tr>
+		<td>SayRest</td>
+		<td></td>
+		<td>Send everything to the end of the current line to output</td>
+	</tr>
+
+	<tr>
+		<td>SayNChars</td>
+		<td>N</td>
+		<td>Send next N characters to output</td>
+	</tr>
+
+	<tr>
+		<td>SayOutput</td>
+		<td>S</td>
+		<td>Send the content of output S to the current output. The output CurrentUrl is always generated at runtime.</td>
+	</tr>
+	
+	<tr>
+		<td>SayNextNumber</td>
+		<td></td>
+		<td>Outputs the next numeric value from the input.</td>
+	</tr>
+	
+	<tr>
+		<td>SayNextWord</td>
+		<td></td>
+		<td>Outputs the next word from the input.</td>
+	</tr>
+	
+	<tr>
+		<td>SayNewline</td>
+		<td></td>
+		<td>Outputs a carriage return, line feed (CR LF) sequence.</td>
+	</tr>
+	
+	<tr>
+		<td>SayRegexp</td>
+		<td>Sss</td>
+		<td>Outputs all matches of the regular expression in the first parameter separated by the string in the second parameter and ignores the line if the string in the third parameter cannot be found.</td>
+	</tr>
+
+	
+	<tr>
+	    <td>Set</td>
+	    <td>Ss</td>
+	    <td>Sets the content of output S to the value s. Resets the content if s is omitted.</td>
+	</tr>
+
+    <tr>
+		<td>SkipChar</td>
+		<td>S</td>
+		<td>Skip any characters contained in S</td>
+	</tr>
+	
+	<tr>
+		<td>If</td>
+		<td>S</td>
+		<td>Check for occurrence of S on current position.</td>
+	</tr>
+
+	<tr>
+		<td>IfNot</td>
+		<td>S</td>
+		<td>Check for absence of S on current position.</td>
+	</tr>
+
+	<tr>
+		<td>Else</td>
+		<td></td>
+		<td>Else branch of an If operation.</td>
+	</tr>
+
+	<tr>
+		<td>Endif</td>
+		<td></td>
+		<td>End of an If/IfNot operation.</td>
+	</tr>
+
+	<tr>
+		<td>OutputTo</td>
+		<td>S</td>
+		<td>Sets the name of the output buffer of the Say commands to S.</td>
+	</tr>
+
+	<tr>
+		<td>Do ... While</td>
+		<td>Sn</td>
+		<td>Execute the command surrounded by the two commands while S occurs on current position. The optional second parameter limits the execution of the loop to maximal n times.<br />
+		<code>
+			Do<br />
+			MoveLine 1<br />
+			While &quot;&lt;td&gt;&quot;
+		</code><br />
+		Nesting of Do commands is not allowed.</td>
+	</tr>
+	
+	<tr>
+		<td>Replace</td>
+		<td>SS</td>
+		<td>Replaces all occurrences of the first parameter by the second parameter.</td>
+	</tr>
+	
+	<tr>
+		<td>RegexpReplace</td>
+		<td>SS</td>
+		<td>Replaces everything that is matched by the regular expression in the first parameter by the string in the second parameter.</td>
+	</tr>
+	
+	<tr>
+		<td>JoinUntil</td>
+		<td>S</td>
+		<td>Joins the current line to the next occurrence of S.</td>
+	</tr>
+	
+	<tr>
+		<td>JoinLines</td>
+		<td>N</td>
+		<td>Joins the current line with the next N lines.</td>
+	</tr>
+
+	<tr>
+		<td>KillTag</td>
+		<td>Ss</td>
+		<td>Replaces tag S with s in current line (or blank if omitted).</td>
+	</tr>
+	
+	<tr>
+		<td>Unspace</td>
+		<td></td>
+		<td>Removes leading and trailing spaces from the current line.</td>
+	</tr>
+
+	<tr>
+		<td>Debug</td>
+		<td>Ssn</td>
+		<td>Debug output, S= &quot;on&quot; or &quot;off&quot;, s is an optional file name.<br/>n is an optional maximum file size for the debug file in MB.</td>
+	</tr>
+</table>
+
+<p>
+N&nbsp;&nbsp;&nbsp;&nbsp;Required numeric parameter<br />
+S&nbsp;&nbsp;&nbsp;&nbsp;Required string parameter (in quotes)<br />
+n&nbsp;&nbsp;&nbsp;&nbsp;Optional numeric parameter<br />
+s&nbsp;&nbsp;&nbsp;&nbsp;Optional string parameter (in quotes)
+</p>
+
+
+
+
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>

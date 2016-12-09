@@ -1,0 +1,113 @@
+# Mp3tag (v2.36 and above) Cover art from Amazon Web Service 
+#
+# 2005-11-27 initial release by Florian
+# Last modified 2007-04-29 by dano
+#
+# Save it in your Mp3tag data directory, i.e.
+# C:\Documents and Settings\*username*\Application Data\Mp3tag\data\sources
+#
+#
+[Name]=Cover - Amazon.com
+[BasedOn]=webservices.amazon.com
+[IndexUrl]=http://webservices.amazon.com/onca/xml?Service=AWSECommerceService&Operation=ItemSearch&SearchIndex=Music&Keywords=%s&ItemPage=1&ResponseGroup=ItemAttributes,Small,Images
+[AlbumUrl]=http://webservices.amazon.com/onca/xml?Service=AWSECommerceService&Operation=ItemLookup&ItemId
+[WordSeperator]=%20
+[IndexFormat]=%_url%|%_preview%|%Cover%|%Artist%|%Format%|%Label%|%Date%|%Album%
+[SearchBy]=%album%
+
+[ParserScriptIndex]=...
+# ###################################################################
+#					I  N  D  E  X
+# ###################################################################
+#debug "on" "c:\debug_Cover___Amazon.com_A.html" "5"
+
+regexpreplace "<Binding>[^<]+</Binding>" ""
+findinline "<SmallImage>" 1 1
+do
+	say "="
+	findinline "<Item>" -1
+	sayregexp "(?<=<ASIN>)[^<]+(?=</ASIN>)" ", " "</ItemAttributes>"
+	say "&ItemPage=1&ResponseGroup=ItemAttributes,Small,Tracks,Images"
+	say "|"
+	say "http://www.amazon.com/exec/obidos/ASIN/"
+	sayregexp "(?<=<ASIN>)[^<]+(?=</ASIN>)" ", " "</ItemAttributes>"
+	say "/poetri-21"
+	say "|"
+
+	# Cover size
+	findinline "</MediumImage>"
+	if "<LargeImage>"
+		sayregexp "(?<=<Width Units=\"pixels\">)\d+(?=</Width>)" "" "</LargeImage>"
+		say "x"
+		sayregexp "(?<=<Height Units=\"pixels\">)\d+(?=</Height>)" "" "</LargeImage>"
+	else
+		findinline "<MediumImage>" 1 1
+		sayregexp "(?<=<Width Units=\"pixels\">)\d+(?=</Width>)" "" "</MediumImage>"
+		say "x"
+		sayregexp "(?<=<Height Units=\"pixels\">)\d+(?=</Height>)" "" "</MediumImage>"
+	endif
+	say "|"
+	
+	# Artist
+	findinline "<ItemAttributes>"
+	if "<Artist>"
+		findinline "<Artist>"
+		sayuntil "</Artist>"
+	else
+		if "<Creator"
+			findinline "<Creator"
+			findinline ">"
+			sayuntil "</Creator>"
+		else
+			if "<Author>"
+				findinline "<Author>"
+				sayuntil "</Author>"
+			endif
+		endif
+	endif
+	say "|"
+	
+	# Format
+	sayregexp "(?<=<Format>)[^<]+(?=</Format>)" ", " "</ItemAttributes>"
+	say "|"
+		
+	# Publisher
+	sayregexp "(?<=<Label>)[^<]+(?=</Label>)" ", " "</ItemAttributes>"
+	say "|"
+	
+	# Released	
+	sayregexp "(?<=<ReleaseDate>)[-0-9]{4,10}(?=</ReleaseDate>)" ", " "</ItemAttributes>"
+	say "|"
+	
+	#Album
+	findinline "<Title>"
+	sayuntil "</Title>"
+	
+	saynewline
+	findinline "<SmallImage>" 1 1
+while "<URL>"
+
+[ParserScriptAlbum]=...
+# ###################################################################
+#					A  L  B  U  M
+# ###################################################################
+#debug "on" "c:\debug_Cover___Amazon.com_B.html" "5"
+
+# CoverURL
+outputto "coverurl"
+findinline "<LargeImage>" 1 1
+movechar -12
+if "<LargeImage>"
+	findinline "<URL>"
+	sayuntil "</URL>"
+else
+	findline "<ItemAttributes>"
+	findinline "<MediumImage>" 1 1
+	movechar -13
+	if "<MediumImage>"
+		findinline "<URL>"
+		sayuntil "</URL>"
+	else
+		findline "<ItemAttributes>"
+	endif
+endif

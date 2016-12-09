@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en -->
+	<!-- info at mp3tag.de/en -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - First Steps" />
+	<meta name="Keywords" content="" />
+	<title>Mp3tag Help - First Steps</title>
+	<link rel="stylesheet" type="text/css" href="content.css" />
+</head>
+<body>
+	<div id="wrap">
+	<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+	<div>
+		
+		<h1>First Steps</h1>
+		
+		<ul>
+			<li><a href="#save">Saving Tags to files</a></li>
+			<li><a href="#delete">Removing Tags from files</a></li>
+			<li><a href="#format">Case conversion on filenames and tags</a></li>
+			<li><a href="#columns">Customizing the file view</a></li>
+		</ul>
+		
+	</div>
+	
+	<div>
+		<a id="save"></a><h1>Saving Tags to files</h1>
+		
+		<h2>Step 1</h2>
+		First change to a directory containing <a href="main_formats.html">supported</a>
+		audio-files by using the command <a href="main_commands.html#changedir"><img src="images/mt_dir.png" alt="" /> File &gt; Change directory...</a><br />
+		The file view now contains all the files of this directory. If you also want to display the files of the subdirectories,
+		please enable the option <strong>Subfolders</strong> in the change directory dialog<br />
+               
+		<h2>Step 2</h2>
+		Now select the file to edit by using the mouse or the keyboard. The tag of the selected file will be displayed in the
+		entry fields on the left of the main window.<br />
+		&nbsp;<br />
+		If there are more file selected, the entry fields will show the default values for multiple selections. You can
+		customize these default values at <a href="options_values.html">Options &gt; Default values</a>
+		
+		<h2>Step 3</h2>
+		Please enter the tag-information of the current file to the entry fields.<br />
+		&nbsp;<br />
+    If one field contains the text <strong>&lt; keep &gt;</strong>, Mp3tag will keep the current content of this tag-field when saving the new tag.<br />
+    If one field contains the text <strong>&lt; remove &gt;</strong>, Mp3tag will remove the current content of this tag-field when saving the new tag.
+    
+    <h2>Step 4</h2>
+		Save the new tag by using the command <a href="main_commands.html#save"><img src="images/mt_save.png" alt="" /> File &gt; Save tag</a>
+		or use the disc button at Mp3tag's toolbar.
+		
+		<div class="note"><div class="noteh">Note</div><div class="noteb">
+			<p>
+				Mp3tag always stores ID3v1- and ID3v2-Tags to MP3 files. You can
+				change these settings via
+				<br /><a href="options_id3.html">Options &gt; Tags &gt; Mpeg</a>.
+			</p>
+		</div></div>
+	</div>
+	
+	<div>
+		<a id="delete"></a><h1>Removing Tags from files</h1>
+    
+    <h2>Step 1</h2>
+		First change to a directory containing <a href="main_formats.html">supported</a>
+		audio-files by using the command <a href="main_commands.html#changedir"><img src="images/mt_dir.png" alt="" /> File &gt; Change directory...</a><br />
+		The file view now contains all the files of this directory. If you also want to display the files of the subdirectories,
+		please enable the option <strong>Subfolders</strong> in the change directory dialog
+		
+		<h2>Step 2</h2>
+		Now select the file(s) by using the mouse or the keyboard.
+		
+		<h2>Step 3</h2>
+		Remove the Tags of the selected files by using the command <a href="main_commands.html#delete"><img src="images/mt_delete.png" alt="" /> File &gt; Remove tag</a>
+		or use the delete button at Mp3tag's toolbar.
+		
+		<div class="note"><div class="noteh">Note</div><div class="noteb">
+			<p>
+				Mp3tag always removes ID3v1- and ID3v2-tags from files.  You can
+				change these settings via
+				<br /><a href="options_id3.html">Options &gt; Tags &gt; Mpeg</a>.
+			</p>
+		</div></div>
+	</div>
+	
+	
+	<div>
+		<a id="format"></a><h1>Case conversion on filenames and tags</h1>
+    
+    <h2>Step 1</h2>
+		First change to a directory containing <a href="main_formats.html">supported</a>
+		audio-files by using the command <a href="main_commands.html#changedir"><img src="images/mt_dir.png" alt="" /> File &gt; Change directory...</a><br />
+		The file view now contains all the files of this directory. If you also want to display the files of the subdirectories,
+		please enable the option <strong>Subfolders</strong> in the change directory dialog.
+		
+		<h2>Step 2</h2>
+		Now select the file(s) you want to edit by using the mouse or the keyboard.
+		
+		<h2>Step 3</h2>
+		Run the command <a href="main_commands.html#act"><img src="images/mt_format.png" alt="" /> Convert &gt; Actions</a> or
+		just use the icon from the toolbar.
+		
+		<h2>Step 4</h2>
+		Create a new action group by choosing the <img src="images/mt_new.png" alt="" /> <strong>New</strong> button
+		and give this action group a meaningful name, e.g. "All uppercase".
+		
+		<h2>Step 5</h2>
+		Create a new action by choosing the <img src="images/mt_new.png" alt="" /> <strong>New</strong> button
+		and choose <strong>Case conversion</strong> as action type.
+		
+		<h2>Step 6</h2>
+		Activate the check mark of the action group and run the action group via the OK button.
+		
+	</div>
+		
+	
+	<div>
+		<a id="columns"></a><h1>Customizing the file view</h1>
+		You can add and remove user-defined columns in the file view of Mp3tag.<br />
+		&nbsp;<br />
+		Just display the column dialog via the command <a href="main_commands.html#viewcolumns">
+		View &gt; Columns...</a> and follow the
+		instructions on <a href="main_viewcolumns.html">this page</a>.
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>

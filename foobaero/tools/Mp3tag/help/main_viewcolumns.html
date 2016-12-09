@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - Customize columns" />
+	<meta name="Keywords" content="" />
+	<title>Mp3tag Help - Customize columns</title>
+	<link rel="stylesheet" type="text/css" href="content.css" />
+</head>
+<body>
+		<div id="wrap">
+		<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+		<div>
+
+			<h1>Customize columns</h1>
+			
+			<p>
+				Menu <a href="main_commands.html#viewcolumns">View &gt; Columns</a>
+			</p>
+			
+			<p>
+				With this dialog you can add, remove and rearrange the columns of the file view.
+			</p>
+			
+			<h2>Value</h2>
+			This field is required and is used for displaying content in the file view. You can use any placeholder from the list below.
+			
+			<h2>Field</h2>
+			This field is optional. The placeholder of this field is used for editing the content of the field through the file view - if this field is empty, the column is write protected.<br />
+			You can only use placeholders for tag fields (e.g. %artist%), %_filename_ext%, or %_filename% here.
+			
+			<h2>Sort by</h2>
+			This field is optional. If this field is empty, Mp3tag uses the contents of <strong>Value</strong> for sorting. Otherwise the evaluated content of this field is used.
+			
+			<h2>Numeric</h2>
+			This checkbox affects the sorting of the column and determines if the column contents are aligned left or right.
+			
+			<h2>The following placeholders are available:</h2>
+		
+		<table>
+			<tr><td><b>Metadata</b></td>
+				<td>&nbsp;</td></tr>
+			<tr><td><code>%artist%</code></td>
+				<td>Artist</td></tr>
+			<tr><td><code>%album%</code></td>
+				<td>Album</td></tr>
+			<tr><td><code>%comment%</code></td>
+				<td>Comment</td></tr>
+			<tr><td><code>%genre%</code></td>
+				<td>Genre</td></tr>
+			<tr><td><code>%title%</code></td>
+				<td>Title</td></tr>
+			<tr><td><code>%track%</code></td>
+				<td>Track-Number</td></tr>
+			<tr><td><code>%_total%</code></td>
+				<td>Total number of tracks from xx/XX track-number field</td></tr>
+			<tr><td><code>%year%</code></td>
+				<td>Year</td></tr>
+			<tr><td><code>%field name%</code></td>
+				<td>the content of any field name</td></tr>
+			<tr><td></td><td></td></tr>
+			<tr><td><b>Technical info</b></td>
+				<td>&nbsp;</td></tr>
+			<tr><td><code>%_bitrate%</code></td>
+				<td>Bitrate in kBit/s</td></tr>
+			<tr><td><code>%_codec%</code></td>
+				<td>Codec</td></tr>
+			<tr><td><code>%_length%</code></td>
+				<td>Length (formatted)</td></tr>
+			<tr><td><code>%_length_seconds%</code></td>
+				<td>Length (in seconds)</td></tr>
+			<tr><td><code>%_mode%</code></td>
+				<td>Mode</td></tr>
+			<tr><td><code>%_samplerate%</code></td>
+				<td>Sample rate</td></tr>
+			<tr><td><code>%_tag%</code></td>
+				<td>Available tag types in file</td></tr>
+			<tr><td><code>%_tag_read%</code></td>
+				<td>Displayed tag type</td></tr>
+			<tr><td><code>%_tag_size%</code></td>
+				<td>Size of all tags in bytes</td></tr>
+			<tr><td><code>%_tag_size_appended%</code></td>
+				<td>Size of all appended tags in bytes</td></tr>
+			<tr><td><code>%_tag_size_prepended%</code></td>
+				<td>Size of all prepended tags in bytes</td></tr>
+			<tr><td><code>%_vbr%</code></td>
+				<td>VBR</td></tr>
+			<tr><td><code>%_covers%</code></td>
+				<td>count of cover art in the tag of the file</td></tr>
+			<tr><td><code>%_cover_mimetype%</code></td>
+				<td>mimetype of first cover art in the tag of the file</td></tr>
+			<tr><td><code>%_cover_size%</code></td>
+				<td>size of first cover art in the tag of the file in bytes</td></tr>
+			<tr><td><code>%_id3v2_character_encoding%</code></td>
+			    <td>encoding of the ID3v2 text frames of the file.</td></tr>
+			<tr><td><code>%_tool%</code></td>
+			    <td>additional codec information (not available for all supported audio formats).</td></tr>
+			<tr><td></td><td></td></tr>
+			<tr><td><b>File name / path info</b></td>
+				<td>&nbsp;</td></tr>
+			<tr><td><code>%_filename_ext%</code></td>
+				<td>File name with extension</td></tr>
+			<tr><td><code>%_extension%</code></td>
+				<td>File extension</td></tr>
+			<tr><td><code>%_file_create_date%</code></td>
+				<td>Short creation date</td></tr>
+			<tr><td><code>%_file_create_datetime%</code></td>
+				<td>Long creation date</td></tr>
+			<tr><td><code>%_file_create_datetime_raw%</code></td>
+				<td>Long creation date (unformatted)</td></tr>
+			<tr><td><code>%_file_mod_date%</code></td>
+				<td>Short modification date</td></tr>
+			<tr><td><code>%_file_mod_datetime%</code></td>
+				<td>Long modification date</td></tr>
+			<tr><td><code>%_file_mod_datetime_raw%</code></td>
+				<td>Long modification date (unformatted)</td></tr>
+			<tr><td><code>%_file_size%</code></td>
+				<td>File size in human readable format</td></tr>
+			<tr><td><code>%_file_size_bytes%</code></td>
+				<td>File size in bytes</td></tr>
+			<tr><td><code>%_file_size_kb%</code></td>
+				<td>File size in kilobytes</td></tr>
+			<tr><td><code>%_file_size_mb%</code></td>
+				<td>File size in megabytes</td></tr>
+			<tr><td><code>%_folderpath%</code></td>
+				<td>Path without file name</td></tr>
+			<tr><td><code>%_directory%</code></td>
+				<td>Name of the parent directory</td></tr>
+			<tr><td><code>%_parent_directory%</code></td>
+				<td>Name of the grandparent folder</td></tr>
+ 		</table>
+
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>

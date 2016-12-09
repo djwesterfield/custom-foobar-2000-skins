@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - Important changes" />
+	<meta name="Keywords" content="" />
+	<title>Mp3tag Help - Important changes</title>
+	<link rel="stylesheet" type="text/css" href="content.css" />
+</head>
+<body>
+	<div id="wrap">
+	<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+	<div>
+		
+		<h1>Important changes</h1>
+		
+		This chapter describes important changes and news. Please have a look at the
+		<a href="../Mp3tagVersion.txt">history of changes</a> for a complete list.
+	</div>
+	
+	<div>
+	    <a id="v246"></a><h1>Mp3tag v2.46</h1>
+	    
+	    <h2>Explorer Shell Extension</h2>
+	    The right-click menu extension is now realised by a dedicated Shell extension
+	    which improves opening files and directories via the context menu also for large
+	    amounts of files.
+	    
+	    <h2>Improved user-defined field mappings</h2>
+        The user-defined mappings for field names introduced in Mp3tag v2.45 now have an 
+        own <a href="main_mapping.html">help page</a> and were further improved with regard 
+        to mapping multiple field names to one user-defined field name.
+	    
+	    <h2>Improved Tag Sources dialog</h2>
+	    The Tag Sources dialog now also supports reordering of files via drag and drop
+	    allowing to quickly rearrange files according to the titles. Yes, we made it work
+	    with multiple files too :-)
+	    The sorting and selection state of the Tag Sources search results are now also
+	    remembered if you decide to go back and pick another result.
+	    
+	    <h2>Portable settings</h2>
+        Previous versions of Mp3tag stored toolbar and panel positions in the Windows Registry.
+        This changed with this release so that Mp3tag now stores all configuration data in its 
+        own configuration files.
+	</div>
+	    
+	<div>
+	    <a id="v245"></a><h1>Mp3tag v2.45</h1>
+	    
+	    <h2>Improved Filter</h2>
+	    The filter now supports <a href="main_filter.html">filter expressions</a> where it is now
+	    possible to combine filter criteria and use format strings for filtering. The filter now
+	    also comes with a history, providing easy access to your often-used filter expressions.
+	    
+	    <h2>User-defined field mappings</h2>
+	    Mp3tag now supports user-defined mappings for field names. This is particularly useful 
+	    in case you need to make field names consistent across different types of tags 
+	    (e.g., BAND in ID3v2 and ALBUM ARTIST in FLAC). The feature is available via
+	    'Options &gt; Tags &gt; Mapping' where you can create mappings for a specific tag type 
+	    (APEv2, ID3v2, MP4, VorbisComment or WMA), provide a Source name (Mp3tag's internal name) 
+	    and a target name (your preferred field name).
+	    
+	    <h2>Multiline fields for Tag Panel</h2>
+	    Are you adding lyrics, artist biographies or other text-intensive information to your songs?
+	    If so, you can now add multiline custom fields to the Tag Panel via 
+	    <a href="options_tagpanel.html">Options &gt; Tag Panel</a>.
+	</div>
+	
+	<div>
+	    <a id="v243"></a><h1>Mp3tag v2.43</h1>
+	    
+	    <h2>Automatic Updates</h2>
+	    This version comes with support for automatic checking for updates on program startup. You
+	    can decide whether you want to get notified on stable final releases only, or whether you
+	    want the freshest stuff from our compilers (Beta versions). If you don't want Mp3tag to check
+	    for updates you can disable it completely at 'Options > Updates'.
+	    
+	    <h2>Horizontal Tag Panel</h2>
+	    While it was always possible to drag the Tag Panel and dock it above or below
+	    Mp3tag's file list, the input fields are now arranged more effectively. It's also
+	    possible to disable the directory switcher from the Tag Panel.
+	    
+	    <h2>New Translations</h2>
+	    Mp3tag is now also translated to Danish, Hebrew, Vietnamese, and Ukranian language.
+	</div>
+	
+	<div>
+		<a id="v234"></a><h1>Mp3tag v2.34 - Support for cover art / Import from Amazon.com</h1>
+		
+		<h2>Support for cover art</h2>
+		With the new release Mp3tag supports embedded cover art for files with ID3v2 tags, TTA- and WMA files.
+		You can add cover art via the <img src="images/mt_tag.png" alt="extended tag dialog" /> extended tag dialog at <span class="menu">View &gt; Extended Tags...</span>
+		or <span class="hotkey">Alt</span> + <span class="hotkey">T</span>.
+		
+		<h2>Import from Amazon.com</h2>
+		Besides the freedb support, Mp3tag now has the ability to get album information from Amazon.com. Just
+		choose the small arrow from the right of the Icon <img src="images/mt_freedb.png" alt="freedb" /> and
+		select <strong>Amazon.com</strong>. You'll get a list of matching items and can choose the
+		album to import the tags (and cover art).<br />
+		<br />
+		The Amazon.com import uses Mp3tag's incredible web source framework. There are even more web sources
+		available at the <a href="http://forums.mp3tag.de/index.php?showtopic=1794">Web Source Archive</a> on the
+		Mp3tag forums.
+		<p>
+			<strong>Please visit the <a href="http://forums.mp3tag.de">Mp3tag forums</a> if you have other questions regarding the new release.</strong>
+		</p>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<div>
+		<a id="v233"></a><h1>Mp3tag v2.33 - Support for Unicode</h1>
+		Probably the most import change and new feature in this version is the support for Unicode through
+		the whole program. Mp3tag writes ID3v2 tags in Unicode format (UTF-16) by default now, but there are
+		still some programs, portables or car radios which have problems with ID3v2 tags stored in Unicode format
+		(though this is specified within the ID3v2 standard). To use Mp3tag with this programs or devices, simply
+		enable the option <strong>Always write ISO-8859-1 tags instead of UTF-16</strong> at
+		<strong>Options &gt; Tags &gt; Mpeg</strong>. After that, just save the tags again by clicking 
+		<img src="images/mt_save.png" alt="File &gt; Save tag" /> or by using the
+		<span class="hotkey">Ctrl</span> + <span class="hotkey">S</span> hotkey.<br />
+		<br />
+		If you have problems displaying tags with characters from other charsets (like Cyrillic) in Mp3tag, the
+		tags are probably stored in a system codepage instead of Unicode or ISO-8859-1. To convert these tags
+		from a specific codepage to Unicode, simply create a new action <span style="color:green">Convert codepage</span>,
+		select the appropriate tag field(s) and choose the codepage from the drop-down list.
+		<p>
+			<strong>Please visit the <a href="http://forums.mp3tag.de">Mp3tag forums</a> if you have other questions regarding the new release.</strong>
+		</p>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<div>
+		<a id="v227"></a><h1>Mp3tag v2.27 - New syntax for scripting functions</h1>
+		
+		The last versions had major problems with the backslash and the double quotes characters
+		within scripting functions so we had to reimplement the part which is responsible for
+		evaluating the built in functions.<br />
+		The names of the functions did not change - you don't have to learn new function names
+		or placeholder names.		
+
+		<h2>What has changed?</h2>
+		<ul>
+			<li>There is no need to put parameters of function in double quotes anymore.</li>
+			<li>There is no need to leave the $ character from nested function calls.</li>
+			<li>There are (hopefully) no problems with backslahes and double quotes anymore.</li>
+			<li>The scripting functions $meta and $join are obsolete now.</li>
+		</ul>
+		
+		<h2>Are there any special characters with specific functionality/limitations?</h2>
+		<ul>
+			<li><code>[ ... ]</code> Displays contents of brackets only if at least one of fields referenced inside has been found.</li>
+			<li><code>'</code> Outputs raw text without parsing. This will output the contained string and ignore all reserved characters (%,$,[,]) in it.</li>
+			<li><code>$%[]</code>You have to put the single quote around these reserved characters if you want to use them unparsed.</li>
+			<li><code>'</code>You have to put the single quote before this reserved character if you want to output a singe quote.</li>
+		</ul>
+
+		<h2>Examples for conversion</h2>
+		<ul>
+			<li><code>$num(&quot;%track%&quot;, 2)</code> is now <br /><code>$num(%track%,2)</code></li>
+			<li><code>file://$replace(&quot;%_folderpath%&quot;,&quot;\&quot;,&quot;/&quot;)</code> is now<br /><code>file://$replace(%_folderpath%,\,/)</code></li>
+			<li><code>%_tag_read% [%_tag%]</code> is now<br /><code>%_tag_read% '['%_tag%']'</code></li>					
+		</ul>
+		
+		<p>
+			<strong>Please visit the <a href="http://forums.mp3tag.de">Mp3tag forums</a> if you have other questions regarding the new release.</strong>
+		</p>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>

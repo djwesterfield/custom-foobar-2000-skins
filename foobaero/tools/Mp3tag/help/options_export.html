@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - Configuration &gt; Export" />
+	<meta name="Keywords" content="" />
+	<title>Mp3tag Help - Configuration &gt; Export</title>
+	<link rel="stylesheet" type="text/css" href="content.css" />
+</head>
+<body>
+	<div id="wrap">
+	<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+	<div>
+		
+		<h1><img src="images/mt_export.png" alt="" /> <a href="options.html" title="Back to Configuration overview...">Configuration</a> &gt; Export</h1>
+		
+		<a href="#settings">Settings</a><br />
+		<a href="#syntax">Description of the export configuration file format</a><br />
+		<a href="#placeholder">Placeholders for export configurations</a><br />
+		<a href="#globals">Global placeholders used in export configurations</a><br />
+		<a href="main_scripting.html">Built in scripting commands</a><br />
+	</div>
+	
+	<div>
+			<a id="settings"></a><h1>Settings</h1>
+			<p>		
+				The list shows the available export configurations. You can activate an export
+				configuration by selecting it. This export configuration will be used when running
+				the export command.
+			</p>
+			<p>
+				You can create a new export configuration by pressing the <strong>New configuration</strong> button.
+			</p>
+			<p>
+				You can edit the selected export configuration by pressing the <strong>Edit configuration</strong> button.
+			</p>
+			<p>
+				You can delete the selected export configuration by pressing the <strong>Delete configuration</strong> button.
+			</p>
+			
+			<h2>Export file name</h2>
+			<p>
+				You can enter the filename of the export file here. If the filename contains
+				some placeholders, Mp3tag will replace them with the specific data at runtime.
+			</p>
+			
+			<h2>Directory of export configurations</h2>
+			<p>
+				Specify the directory of export configurations here.
+			</p>
+			
+			<h2>Append data</h2>
+			<p>
+				Enable this option, if you want Mp3tag to append data at an existing export file.
+			</p>
+			
+			<h2>One file per directory</h2>
+			<p>
+				If this option is enabled, Mp3tag creates one export file for each directory.
+			</p>
+			
+			<h2>Show selection dialog</h2>
+			<p>
+				If this option is enabled, Mp3tag shows a dialog with the available export configurations at Export.
+			</p>
+			
+			<h2>Don't create directories</h2>
+			<p>
+				Since you can also use relative and absolute file paths as export file names - e.g. %artist%\%album%.html - 
+				this option prevents Mp3tag from creating any directories during the export process.
+			</p>
+			
+			<h2>Write BOM</h2>
+			<p>
+				If you enabled writing of UTF-8 or UTF-16 via the $filename function in the export configuration, 
+				this option enables writing of a Byte Order Marker which is required by some applications.
+			</p>
+			
+			<h2>Keyboard shortcuts</h2>
+			<p>
+			    Besides the available buttons and context menu items you can rename export configurations
+		        by pressing the <span class="hotkey">F2</span> keyboard shortcut and edit export configurations 
+		        via the <span class="hotkey">F4</span> keyboard shortcut. <span class="hotkey">Ins</span> creates
+		        a new export configuration whereas <span class="hotkey">Del</span> deletes the currently selected
+		        export configuration.
+		    </p>
+			
+			<p>
+				<a class="index" href="index.html">Back to main page</a>
+			</p>
+		</div>
+		
+		<div>
+			<a id="syntax"></a><h1>Export configurations</h1>
+			
+			<p>
+				You can specify any text, any of the many placeholders below and instructions 
+				for loops in your export configuration.
+			</p>
+			
+			<p>
+				You can set the filename of the exported file with the function $filename(name[,enc]). The
+				optional second parameter sets the encoding of the export file. Possible values are ansi, utf-8
+				and utf-16.
+			</p>
+			
+			<code>
+			$filename(test.txt)<br />
+			$filename(test.txt,ansi)<br />
+			$filename(test.txt,utf-8)<br />
+			$filename(test.txt,utf-16)<br />
+			</code>
+			
+			<p>
+			</p>
+			
+			<p>
+				<code>$loop(%fieldname%)</code> starts a new loop. The loop data is sorted by the fieldname.<br />
+				<code>$loopend()</code> ends a loop.<br />
+				If you want to limit the loop output to a certain number of entries, simply use <code>$loop(%fieldname%,num)</code>. This
+				is useful to eliminate duplicate records (num=1).
+			</p>
+			
+			<p>
+				<a class="index" href="index.html">Back to main page</a>
+			</p>
+		</div>
+		
+		<div>
+			<a id="placeholder"></a><h1>Placeholders for export configurations</h1>
+			
+			<p>
+				You can use these placeholders within the export configurations and the 
+				filename of the export file:
+			</p>
+			
+			<h2>Characters with special functionality</h2>
+			
+			<table cellspacing="5" cellpadding="5">
+			<tr>
+				<td><code>[...]</code></td>
+				<td>The contents of brackets are displayed only if at least one of the placeholders used inside the brackets has been found.</td>
+			</tr>
+			<tr>
+				<td><code>'</code></td>
+				<td>Outputs raw text without parsing. This will output the contained string and ignore all reserved characters.
+				If you want to output this character please use <code>''</code>.</td>
+			</tr>
+			<tr>
+				<td><code>[]$%</code></td>
+				<td>You have to put the single quote around these reserved characters if you want to use them unparsed.</td>
+			</tr>
+			</table>
+			
+			<table>
+					<tr><td><b>Metadata</b></td>
+						<td>&nbsp;</td></tr>
+					<tr><td><code>%artist%</code></td>
+						<td>Artist</td></tr>
+					<tr><td><code>%album%</code></td>
+						<td>Album</td></tr>
+					<tr><td><code>%comment%</code></td>
+						<td>Comment</td></tr>
+					<tr><td><code>%genre%</code></td>
+						<td>Genre</td></tr>
+					<tr><td><code>%title%</code></td>
+						<td>Title</td></tr>
+					<tr><td><code>%track%</code></td>
+						<td>Track-Number</td></tr>
+					<tr><td><code>%_total%</code></td>
+						<td>Total number of tracks from xx/XX track-number field</td></tr>
+					<tr><td><code>%year%</code></td>
+						<td>Year</td></tr>
+					<tr><td><code>%fieldname%</code></td>
+						<td>Fieldname</td></tr>
+					
+					<tr><td colspan="2"><b>&nbsp;</b></td></tr>
+					
+					<tr><td><b>Technical info</b></td>
+						<td>&nbsp;</td></tr>
+					<tr><td><code>%_bitrate%</code></td>
+						<td>Bitrate in kBit/s</td></tr>
+					<tr><td><code>%_codec%</code></td>
+						<td>Codec</td></tr>
+					<tr><td><code>%_length%</code></td>
+						<td>Length (formatted)</td></tr>
+					<tr><td><code>%_length_seconds%</code></td>
+						<td>Length (in seconds)</td></tr>
+					<tr><td><code>%_mode%</code></td>
+						<td>Mode</td></tr>
+					<tr><td><code>%_samplerate%</code></td>
+						<td>Samplerate</td></tr>
+					<tr><td><code>%_tag%</code></td>
+						<td>Available tag types in file</td></tr>
+					<tr><td><code>%_tag_read%</code></td>
+						<td>Displayed tag type</td></tr>
+					<tr><td><code>%_tag_size%</code></td>
+						<td>Size of all tags in bytes</td></tr>
+					<tr><td><code>%_tag_size_appended%</code></td>
+						<td>Size of all appended tags in bytes</td></tr>
+					<tr><td><code>%_tag_size_prepended%</code></td>
+						<td>Size of all prepended tags in bytes</td></tr>
+					<tr><td><code>%_vbr%</code></td>
+						<td>VBR</td></tr>
+						
+					<tr><td colspan="2"><b>&nbsp;</b></td></tr>
+
+					<tr><td colspan="2"><b>File name / path info</b></td></tr>
+					<tr><td><code>%_crc%</code></td>
+						<td>CRC32 value of file content</td></tr>
+					<tr><td><code>%_directory%</code></td>
+						<td>Directory name</td></tr>
+					<tr><td><code>%_extension%</code></td>
+						<td>File extension without dot</td></tr>
+					<tr><td><code>%_filename%</code></td>
+						<td>File name without extension</td></tr>
+					<tr><td><code>%_filename_ext%</code></td>
+						<td>File name with extension</td></tr>
+					<tr><td><code>%_filename_rel%</code></td>
+						<td>Filepath including extension, relative to Export output file if output and track files are on same drive, else absolute</td></tr>
+					<tr><td><code>%_file_mod_date%</code></td>
+						<td>Short modification date</td></tr>
+					<tr><td><code>%_file_mod_datetime%</code></td>
+						<td>Long modification date</td></tr>
+					<tr><td><code>%_file_size%</code></td>
+						<td>File size in human readable format</td></tr>
+					<tr><td><code>%_file_size_bytes%</code></td>
+						<td>File size in bytes</td></tr>
+					<tr><td><code>%_file_size_kb%</code></td>
+						<td>File size in kilobytes</td></tr>
+					<tr><td><code>%_file_size_mb%</code></td>
+						<td>File size in megabytes</td></tr>
+					<tr><td><code>%_path%</code></td>
+						<td>File name with path</td></tr>
+					<tr><td><code>%_folderpath%</code></td>
+						<td>Path without file name</td></tr>
+					<tr><td><code>%_folderpath_rel%</code></td>
+						<td>Folderpath relative to Export output file if output and track files are on same drive, else absolute</td></tr>
+					<tr><td><code>%_parent_directory%</code></td>
+						<td>Name of parent directory</td></tr>
+					<tr><td><code>%_md5%</code></td>
+						<td>MD5-Hash of the file (slow!)</td></tr>
+					<tr><td><code>%_md5audio%</code></td>
+						<td>MD5-Hash of the audio part of the file (slow and only supported for ID3- and/or APE-only tagged files)</td></tr>
+					<tr><td><code>%_volume%</code></td>
+						<td>Volume label</td></tr>
+					<tr><td><code>%_workingdir%</code></td>
+						<td>Name of current working directory</td></tr>
+					<tr><td><code>%_workingpath%</code></td>
+						<td>Path of current working directory</td></tr>
+
+					<tr><td colspan="2"><b>&nbsp;</b></td></tr>
+					
+					<tr><td><b>System</b></td>
+						<td>&nbsp;</td></tr>
+					<tr><td><code>%_app%</code></td>
+						<td>Mp3tag, e.g. Mp3tag v2.46a</td></tr>
+					<tr><td><code>%_counter%</code></td>
+						<td>Current counter value (ascending from 1) of the immediately containing loop</td></tr>
+					<tr><td><code>%_date%</code></td>
+						<td>Short date</td></tr>
+					<tr><td><code>%_datetime%</code></td>
+						<td>Long date</td></tr>
+					<tr><td><code>%_max_counter%</code></td>
+						<td>Maximum value of counter of the last closed loop.</td></tr>
+
+					<tr><td colspan="2"><b>&nbsp;</b></td></tr>
+					
+					<tr><td colspan="2"><b><a id="globals"></a>Global placeholders</b> (providing totals for the preceeding $loop/$loopend)</td></tr>
+					<tr><td><code>%_total_files%</code></td>
+						<td>Total number of files</td></tr>
+					<tr><td><code>%_total_size%</code></td>
+						<td>Total file size (formatted output)</td></tr>
+					<tr><td><code>%_total_size_raw%</code></td>
+						<td>Total file size in bytes</td></tr>
+					<tr><td><code>%_total_time%</code></td>
+						<td>Total playing time (formatted output)</td></tr>
+					<tr><td><code>%_total_time2%</code></td>
+						<td>Total playing time (formatted output without days)</td></tr>
+					<tr><td><code>%_total_time_raw%</code></td>
+						<td>Total playing time in seconds</td></tr>
+
+				</table>
+				
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>
