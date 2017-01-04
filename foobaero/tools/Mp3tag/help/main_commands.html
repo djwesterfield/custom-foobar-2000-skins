@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - Overview of commands" />
+	<meta name="Keywords" content="" />
+	<title>Mp3tag Help - Overview of commands</title>
+	<link rel="stylesheet" type="text/css" href="content.css" />
+</head>
+<body>
+	<div id="wrap">
+	<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+	<div>
+		<h1>Overview of commands</h1>
+		
+		<ul>
+			<li><a href="#mnufile">Menu File</a></li>
+			<li><a href="#mnuedit">Menu Edit</a></li>
+			<li><a href="#mnuview">Menu View</a></li>
+			<li><a href="#mnuconverter">Menu Convert</a></li>
+			<li><a href="#mnufreedb">Menu Tag Sources</a></li>
+			<li><a href="#mnuextras">Menu Tools</a></li>
+		</ul>
+	</div>
+	
+	<div>
+		<a id="mnufile"></a><h1>Menu <i>File</i></h1>
+		
+		<a id="save"></a><h2><img src="images/mt_save.png" alt="" /> Save tag</h2>
+			This function saves the tag entered in the tag panel to the selected files.
+			If you have selected <strong>&lt; keep &gt;</strong> at one of the fields 
+			on the tag panel, the value in the tag will not be changed.
+		<p>
+			You can enable/disable writing of specific tag versions at 
+			<a href="options_tags.html">Options &gt; Tags</a>
+		</p>
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">S</span>
+		</p>
+
+
+
+		<a id="delete"></a><h2><img src="images/mt_delete.png" alt="" /> Remove tag</h2>
+			This function removes the tags specified at <a href="options_tags.html">Options &gt; Tags</a>
+			from the selected files.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">R</span>
+		</p>
+		
+		<a id="tagread"></a><h2>Read tag</h2>
+			This function reads the tag from the selected files.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">T</span>
+		</p>
+		
+		<a id="plall"></a><h2><img src="images/mt_plall.png" alt="" /> Playlist (all files)</h2>
+			This function creates a playlist of all files listed in the file view.
+			The filename of the playlist can be a format string and is defined at 
+			<a href="options_playlist.html#playlist">Options &gt; Playlist</a>
+		<p>
+			Note:<br />
+			If you press the Shift-key when running this command, Mp3tag creates a playlist for every different directory.
+		</p>
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">P</span>
+		</p>
+		
+		<a id="plsel"></a><h2><img src="images/mt_plsel.png" alt="" /> Playlist (selected files)</h2>
+			This function creates a playlist of all selected files.
+			The filename of the playlist can be a format string and is defined at 
+			<a href="options_playlist.html#playlist">Options &gt; Playlist</a>
+		<p>
+			Note:<br />
+			If you press the Shift-key when running this command, Mp3tag creates a playlist for every different directory.
+		</p>
+		
+		<a id="export"></a><h2><img src="images/mt_export.png" alt="" /> Export</h2>
+			This function exports file and tag information of the selected files to an export file based on the
+			settings at <a href="options_export.html">Options &gt; Export</a>.<br />
+		<p>
+			Note:<br />
+			If you press the Shift-key when running this command, Mp3tag creates an export file for each different directory.
+		</p>
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">E</span>
+		</p>
+		
+		<a id="changedir"></a><h2><img src="images/mt_dir.png" alt="" /> Change directory...</h2>
+			This function shows a folder tree to change the current working directory of Mp3tag. If you
+			select the <strong>Subfolders</strong> option in this dialog, Mp3tag will also load all 
+			<a href="main_formats.html">supported</a> files from the subfolders of the selected folder.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">D</span>
+		</p>
+		
+		<a id="adddir"></a><h2><img src="images/mt_diradd.png" alt="" /> Add directory...</h2>
+			This function shows a folder tree to add a directory to the file view of Mp3tag. If you
+			select the <strong>Subfolders</strong> option in this dialog, Mp3tag will also load all 
+			<a href="main_formats.html">supported</a> files from the subfolders of the selected folder.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">H</span>
+		</p>
+		
+		<a id="loadpl"></a><h2><img src="images/mt_loadpl.png" alt="" /> Load Playlist/Cuesheet...</h2>
+			This function loads the files referenced in the selected playlist or cuesheet to the file view.
+		
+		<a id="defaultdir"></a><h2><img src="images/mt_dirfav.png" alt="" /> Favorite directory</h2>
+			This function changes to current working directory to the <a href="options_general.html#favdir">specified</a>
+			favorite directory.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">F</span>
+		</p>
+		
+		<a id="saveconf"></a><h2>Save configuration...</h2>
+			This function saves all settings and configuration files to a single zip file for
+			backup purposes.
+		
+		<h2><img src="images/mt_exit.png" alt="" /> Exit</h2>
+			Exit from Mp3tag.
+		<p>
+			Hotkey: <span class="hotkey">Alt</span> + <span class="hotkey">F4</span>
+		</p>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<div>
+		<a id="mnuedit"></a><h1>Menu <i>Edit</i></h1>
+		
+		<a id="undo"></a><h2><img src="images/mt_undo.png" alt="" /> Undo</h2>
+			Undo the last operation.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">Z</span>
+		</p>
+		
+		<a id="copytag"></a><h2><img src="images/mt_copy.png" alt="" /> Copy</h2>
+			Copies text from an edit field to the clipboard.
+			If one or more audio files are selected, Mp3tag copies its tags to the clipboard.
+			Please note that embedded cover art is not copied.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">C</span>
+		</p>
+		
+		<a id="cuttag"></a><h2><img src="images/mt_cut.png" alt="" /> Cut</h2>
+			Cuts text from an edit field to the clipboard.
+			If one or more audio files are selected, Mp3tag cuts its tags to the clipboard.
+			Please note that embedded cover art is not copied.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">X</span>
+		</p>
+		
+		<a id="pastetag"></a><h2><img src="images/mt_paste.png" alt="" /> Paste</h2>
+			Paste text from the clipboard to the current cursor position.<br />
+			If one or more audio files are selected, and the clipboard contains some tag information,
+			Mp3tag will paste the tags to the selected files.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">V</span>
+		</p>
+		
+		<a id="selectall"></a><h2>Select all files</h2>
+			Select all files in the file view.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">A</span>
+		</p>
+		
+		<a id="invert"></a><h2>Invert selection</h2>
+			Inverts the current selection in the file view.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">Shift</span> + <span class="hotkey">A</span>
+		</p>
+		
+		<a id="unselect"></a><h2>Unselect all</h2>
+			Unselects all files in the file view.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">U</span>
+		</p>
+
+		<a id="next"></a><h2>Select next file</h2>
+			This function selects the next file in the file view. Very helpful to walk
+			through all files without leaving the keyboard.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">N</span>
+		</p>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+		
+	<div>
+		<a id="mnuview"></a><h1>Menu <i>View</i></h1>
+		
+		<h2><img src="images/mt_refresh.png" alt="" /> Refresh</h2>
+		Rereads the current working directory and reloads the tag information from all files
+		<p>
+			Hotkey: <span class="hotkey">F5</span>
+		</p>
+		
+		<h2>Sort by</h2>
+		Defines the sort criteria of the file view.
+		
+		<h2>Tag Panel</h2>
+		Shows/hides the tag panel.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">Q</span>
+		</p>
+		
+		<h2><img src="images/mt_tag.png" alt="" /> Extended Tags...</h2>
+		This menu item displays the extended tag dialog where you can edit extended and user-defined
+		tag fields as well as editing embedded cover art.
+		<p>
+			Hotkey: <span class="hotkey">Alt</span> + <span class="hotkey">T</span>
+		</p>
+		
+		<h2>Filter</h2>
+		Shows/hides the filter where you can filter the list of files using a search string or <a href="main_filter.html">filter expressions</a>.
+		<p>
+			Hotkey: <span class="hotkey">F3</span>
+		</p>
+		
+		<a id="viewcolumns"></a><h2>Customize columns</h2>
+		This function opens the <a href="main_viewcolumns.html">customize columns dialog</a>, 
+		which allows to enable and disable columns in the file view and change their arrangement.
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<div>
+	
+		<a id="mnuconverter"></a><h1>Menu <i>Convert</i></h1>
+		
+		<a id="ttf"></a><h2><img src="images/mt_ttf.png" alt="" /> Tag - Filename</h2>
+		This converter renames the selected files based on the tag and file information. It thereby uses
+		a <a href="main_converter.html#ttf">format string</a>, which consists of predefined placeholders.
+		<p>To show a preview of the conversion only, press the Shift key when running the converter.</p>
+		<p>
+			Hotkey: <span class="hotkey">Alt</span> + <span class="hotkey">1</span>
+		</p>
+		
+		<a id="ftt"></a><h2><img src="images/mt_ftt.png" alt="" /> Filename - Tag</h2>
+		This function extracts tag information from the filename based on a
+		<a href="main_converter.html#ftt">format string</a>.
+		<p>To show a preview of the conversion only, press the Shift key when running the converter.</p>
+		<p>
+			Hotkey: <span class="hotkey">Alt</span> + <span class="hotkey">2</span>
+		</p>
+		
+		<a id="ftf"></a><h2><img src="images/mt_ftf.png" alt="" /> Filename - Filename</h2>
+		This function renames the selected files based on the filenames of the files. You 
+		can <a href="main_converter.html#ftf">define parts</a>
+		of the filenames and Mp3tag will rearrange them according to the
+		<a href="options_format.html#ftf">format string</a>.
+		<p>
+			To show a preview of the conversion only, press the Shift key when running the converter.
+		</p>
+		<p>
+			Hotkey: <span class="hotkey">Alt</span> + <span class="hotkey">3</span>
+		</p>
+		
+		<a id="tff"></a><h2><img src="images/mt_tff.png" alt="" /> Text file - Tag (Import)</h2>
+		This converter reads tag information from the
+		<a href="main_converter.html#tff">text file</a>
+		and saves it to the selected files. The format of one line in the text file is defined by a
+		<a href="main_converter.html#tff">format string</a>.
+		<p>
+			Hotkey: <span class="hotkey">Alt</span> + <span class="hotkey">4</span>
+		</p>
+		
+		<a id="act"></a><h2><img src="images/mt_format.png" alt="" /> Actions</h2>
+		This function runs user-defined action groups, which consists of one or more
+		<a href="options_format.html">action types</a> (like replace characters, case conversion, ...).
+		<p>
+			Hotkey: <span class="hotkey">Alt</span> + <span class="hotkey">5</span>
+		</p>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<div>
+		
+		<a id="mnufreedb"></a><h1>Menu <i>Tag Sources</i></h1>
+		
+		<a id="freedb"></a><h2><img src="images/mt_freedb.png" alt="" /> freedb ...</h2>
+		This function queries album information from the internet based on the Audio-CD in the
+		first CD-ROM drive, based on the selected files, by specifying the freedb-ID or by a free
+		text search and saves the information to the selected files.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">I</span>
+		</p>
+		
+		<a id="freedblocal"></a><h2><img src="images/mt_freedblocal.png" alt="" /> freedb (local) ...</h2>
+		This function queries album from a local freedb database based on the Audio-CD in the
+		first CD-ROM drive, or by specifying the freedb-ID and stores the information in the
+		selected files.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">L</span>
+		</p>
+		
+		<a id="web"></a><h2>Amazon.com, discogs.com, ...</h2>
+		Mp3tag has a very powerful <a href="main_online.html">Web sources framework</a> which
+		allows you to get album information from various websites. You can get the latest
+		web sources from the <a href="http://forums.mp3tag.de/index.php?showtopic=1794">Web Sources Archive</a>.
+		To install a web source, just copy the file to your Mp3tag data folder (usually %appdata%\mp3tag\data\sources).
+		
+		<h2>Configuration</h2>
+		You can find a description of the various settings at <a href="options_freedb.html">Options &gt; Tag Sources</a>.
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<div>
+		<a id="mnuextras"></a><h1>Menu <i>Tools</i></h1>
+				
+		<h2>Restore all input fields</h2>
+		Clears all input fields.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">B</span>
+		</p>
+		
+		<a id="trackwiz"></a><h2><img src="images/mt_trackwiz.png" alt="" /> Auto-numbering wizard</h2>
+		The Auto-numbering wizard adds track numbers to your files.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">K</span>
+		</p>
+		
+		<a id="options"></a><h2><img src="images/mt_options.png" alt="" /> Options ...</h2>
+		Displays the option dialog.
+		<p>
+			Hotkey: <span class="hotkey">Ctrl</span> + <span class="hotkey">O</span>
+		</p>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>

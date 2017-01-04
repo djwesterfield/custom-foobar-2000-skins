@@ -1,0 +1,43 @@
+foobar2000-skin
+
+FUNCTIONAL 2000
+
+
+Step-by-step instruction to use functional2000 skin
+###################################################
+
+
+1.
+copy this folder into your foobar2000 installation folder (e.g. c:\Programs\foobar2000\).
+Make sure to leave the folder structure as it is.
+
+
+2.
+Start foobar2000
+
+
+3.
+Goto File ->> Preferences ->> Display ->> Columns UI --> FCL imoporting and exporting --> "Import..."
+
+
+4.
+Select the file "functional2000_X.X.fcl" in your foobar folder.
+
+
+Enjoy this ultimate foobar2000 skin :)
+
+
+
+In case buttons are not showing, import buttons configuration file in button-folder (Options - Buttons --> Tools  --> Load from file...)
+
+
+
+
+
+
+
+
+
+----------------
+made by David Beicht
+Download at customize.org

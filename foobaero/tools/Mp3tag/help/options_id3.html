@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - Configuration &gt; Tags &gt; Mpeg" />
+	<meta name="Keywords" content="" />
+	<title>Mp3tag Help - Configuration, Tags - Mpeg</title>
+	<link rel="stylesheet" type="text/css" href="content.css" />
+</head>
+<body>
+	<div id="wrap">
+	<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+	<div>
+		
+		<h1><a href="options.html" title="Back to Configuration overview...">Configuration</a> &gt; <a href="options_tags.html" title="Back to Tags overview...">Tags</a> &gt; Mpeg</h1>
+		
+		This options are only affecting audio formats which are using ID3v2 tags (currently MP3 and TTA).
+		<p>
+			Please have a look at <a href="main_tags.html">Names and mapping of ID3v2 tag fields</a>
+			for a complete list of ID3v2 tag fields.
+		</p>
+		
+		<div class="note"><div class="noteh">Read</div><div class="noteb">
+			<p>
+				<strong>The order below, is the order in which Mp3tag reads the different tags</strong> (that means that displaying APEv2 tags is prioritized over displaying ID3v1 tags).
+			</p>
+			<h2>ID3v1</h2> <p>if enabled, Mp3tag reads an existing ID3v1 tag.</p>
+			<h2>ID3v2</h2> <p>if enabled, Mp3tag reads an existing ID3v2 tag.</p>
+			<h2>APE</h2> <p>if enabled, Mp3tag reads an existing APEv1 or APEv2 tag.</p>
+		</div></div>
+		
+		<div class="note"><div class="noteh">Write</div><div class="noteb">
+			<h2>ID3v1</h2> <p>if enabled, Mp3tag writes an ID3v1 tag to the file.</p>
+			<h2>APEv2</h2> <p>if enabled, Mp3tag writes an APEv2 tag to the file. If the file already has an APEv1 tag, Mp3tag will update this tag to an APEv2 tag. If the file has an ID3v1 tag, Mp3tag will update this tag too.</p>
+      <h2>ID3v2</h2> <p>if enabled, Mp3tag writes an ID3v2 tag to the file.</p>
+			<h2>ID3v2 only if ID3v1 too small</h2> <p>if enabled, Mp3tag writes only an ID3v2 tag, if the information in the tag input fields exceeds the limitations of the ID3v1 tag. If the file already has an ID3v2 tag, Mp3tag will update this tag. If the tag contains user definied genre, also an ID3v2 tag is written.</p>
+      <h2>ID3v2.4 UTF-8</h2> <p>newest revision of the ID3v2 standard. Tags are written in Unicode as UTF-8 encoded string. If you have problems with displaying the tags in other programs, please aks their authors to support ID3v2.4 (or switch to another option).</p>
+      <h2>ID3v2.3 UTF-16</h2> <p>if enabled, Mp3tag writes ID3v2.3 tags in Unicode encoded as UTF-16 LE.</p>
+      <h2>ID3v2.3 ISO-8859-1</h2> <p>if enabled, Mp3tag doesn't use Unicode when writing ID3v2 tags. This is useful if you are using software or devices (like some car radios) which can't read tags stored in Unicode format.</p>
+		</div></div>
+		
+		<div class="note"><div class="noteh">Remove</div><div class="noteb">
+			<h2>ID3v1</h2> <p>if enabled, Mp3tag removes an existing ID3v1 tag.</p>
+			<h2>ID3v2</h2> <p>if enabled, Mp3tag removes an existing ID3v2 tag.</p>
+			<h2>APE</h2> <p>if enabled, Mp3tag removes an existing APEv1 or APEv2 tag.</p>
+		</div></div>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>

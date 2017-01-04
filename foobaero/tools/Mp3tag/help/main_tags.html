@@ -1,0 +1,743 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - Tag field mappings" />
+	<meta name="Keywords" content="" />
+	<title>Mp3tag Help - Tag field mappings</title>
+	<link rel="stylesheet" type="text/css" href="content.css" />
+</head>
+<body>
+	<div id="wrap">
+		<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+		<div>
+		
+		<h1>Tag field mappings</h1>
+		
+		<h2>Tag fields in Mp3tag</h2>
+		<p>
+			This table below gives an overview of all ID3v2 / WMA tag fields available with Mp3tag,
+			their names in Mp3tag and their use in other programs.<br />
+			You can edit
+			these tag fields through the <img src="images/mt_tag.png" alt="" /> extended tag
+			dialog, add custom field to the Tag Panel via 'Options > Tag Panel' or 
+			<a href="main_viewcolumns.html">customize</a> the file list columns using these
+			field names.
+		</p>
+		<p>
+		    Please note that fields of VorbisComments (used with FLAC, OGG, SPX) and of APEv2 
+		    tags are not mapped internally by Mp3tag but are displayed with their actual name.
+		</p>
+		<p>
+		    In case you need to change one of the mappings (e.g., for using consistent field
+		    names accross formats), you can create <a href="main_mapping.html">User-defined Field Mappings</a>.
+		</p>
+		
+		<h2>ID3v2 / WMA tag fields</h2>
+		
+		
+<!-- BEGIN of TABLE -->
+<table class="tags">
+  <tr>
+    <td class="tags" rowspan="1" colspan="1"><b>Name in Mp3tag</b></td>      
+    <td class="tags" rowspan="1" colspan="1" align="center"><b>ID3v2.3</b></td>
+	<td class="tags" rowspan="1" colspan="1" align="center"><b>ID3v2.4</b></td>
+	<td class="tags" rowspan="1" colspan="1" align="center"><b>WMA</b></td>
+    <td class="tags" rowspan="1" colspan="1" align="center"><b>iTunes</b></td>
+    <td class="tags" rowspan="1" colspan="1" align="center"><b>WMP 10</b></td>
+    <td class="tags" rowspan="1" colspan="1" align="center"><b>Winamp</b></td>
+  </tr>
+
+<tr>
+  <td class="tags">ALBUM</td>      
+  <td class="tags" align="center">TALB</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/AlbumTitle</td>
+  <td class="tags" align="center">Album</td>
+  <td class="tags" align="center">Album</td>
+  <td class="tags" align="center">Album</td>
+</tr>
+<tr>
+  <td class="tags">ALBUMSORTORDER</td>
+  <td class="tags" align="center">TSOA</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/AlbumSortOrder</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+    <td class="tags">ARTIST</td>      
+    <td class="tags" align="center">TPE1</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center">Author</td>
+    <td class="tags" align="center">Artist</td>
+    <td class="tags" align="center">Artist</td>
+    <td class="tags" align="center">Artist</td>
+</tr>
+<tr>
+  <td class="tags">ARTISTSORTORDER</td>
+  <td class="tags" align="center">TSOP</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/ArtistSortOrder</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+    <td class="tags">BAND</td>      
+    <td class="tags" align="center">TPE2</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center">WM/AlbumArtist</td>
+    <td class="tags" align="center">Album Artist</td>
+    <td class="tags" align="center">Album Artist</td>
+    <td class="tags" align="center">Album Artist</td>
+</tr>
+<tr>
+    <td class="tags">BANDSORTORDER</td>      
+    <td class="tags" align="center">TSO2</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center"></td>
+    <td class="tags" align="center">Album Artist Sort Order</td>
+    <td class="tags" align="center"></td>
+    <td class="tags" align="center"></td>
+</tr>
+<tr>
+  <td class="tags">BPM</td>      
+  <td class="tags" align="center">TBPM</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/BeatsPerMinute</td>
+  <td class="tags" align="center">BPM</td>
+  <td class="tags" align="center">Beats per minute</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+    <td class="tags">COMMENT</td>      
+    <td class="tags" align="center">COMM</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center">Description</td>
+    <td class="tags" align="center">Comments</td>
+    <td class="tags" align="center">Comments</td>
+    <td class="tags" align="center">Comment</td>
+</tr>
+<tr>
+    <td class="tags">COMPOSER</td>      
+    <td class="tags" align="center">TCOM</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center">WM/Composer</td>
+    <td class="tags" align="center">Composer</td>
+    <td class="tags" align="center">Composer</td>
+    <td class="tags" align="center">Composer</td>
+  </tr>
+<tr>
+    <td class="tags">COMPOSERSORTORDER</td>      
+    <td class="tags" align="center">TSOC</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center"></td>
+    <td class="tags" align="center">Composer Sort Order</td>
+    <td class="tags" align="center"></td>
+    <td class="tags" align="center"></td>
+</tr>
+  <tr>
+    <td class="tags">CONDUCTOR</td>      
+    <td class="tags" align="center">TPE3</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center">WM/Conductor</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">Conductor</td>
+    <td class="tags" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tags">CONTENTGROUP</td>      
+    <td class="tags" align="center">TIT1</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center">WM/ContentGroupDescription</td>
+    <td class="tags" align="center">Grouping</td>
+    <td class="tags" align="center">Music category description</td>
+    <td class="tags" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tags">COPYRIGHT</td>      
+    <td class="tags" align="center">TCOP</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center">Copyright</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">Copyright</td>
+  </tr>
+  <tr>
+    <td class="tags">DATE</td>      
+    <td class="tags" align="center">TDAT</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tags">DISCNUMBER</td>      
+    <td class="tags" align="center">TPOS</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center">WM/PartOfSet</td>
+    <td class="tags" align="center">Disc Number</td>
+    <td class="tags" align="center">Set</td>
+    <td class="tags" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tags">ENCODEDBY</td>      
+    <td class="tags" align="center">TENC</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center">WM/EncodedBy</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">Encoded by</td>
+  </tr>
+  <tr>
+    <td class="tags">ENCODINGTIME</td>      
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">TDEN</td>
+    <td class="tags" align="center">WM/EncodingTime</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tags">ENCODERSETTINGS</td>
+    <td class="tags" align="center">TSSE</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center">WM/EncodingSettings</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tags">FILEOWNER</td>
+    <td class="tags" align="center">TOWN</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tags">FILETYPE</td>
+    <td class="tags" align="center">TFLT</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+    <td class="tags" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tags">GENRE</td>
+    <td class="tags" align="center">TCON</td>
+    <td class="tags" align="center">"</td>
+    <td class="tags" align="center">WM/Genre</td>
+    <td class="tags" align="center">Genre</td>
+    <td class="tags" align="center">Genre</td>
+    <td class="tags" align="center">Genre</td>
+  </tr>
+<tr>
+  <td class="tags">INITIALKEY</td>      
+  <td class="tags" align="center">TKEY</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/InitialKey</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Key</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags"><a href="#IPLS">INVOLVEDPEOPLE</a> *</td>      
+  <td class="tags" align="center">IPLS</td>
+  <td class="tags" align="center">TIPL</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags"><a href="#TCMP">ITUNESCOMPILATION</a> *</td>      
+  <td class="tags" align="center">TCMP</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Part of a compilation</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags"><a href="#PCST">ITUNESPODCAST</a> *</td>      
+  <td class="tags" align="center">PCST</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags"><a href="#TCAT">ITUNESPODCASTCATEGORY</a> *</td>      
+  <td class="tags" align="center">TCAT</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags"><a href="#TDES">ITUNESPODCASTDESC</a> *</td>      
+  <td class="tags" align="center">TDES</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags"><a href="#TGID">ITUNESPODCASTID</a> *</td>      
+  <td class="tags" align="center">TGID</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags"><a href="#WFED">ITUNESPODCASTURL</a> *</td>      
+  <td class="tags" align="center">WFED</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">ISRC</td>      
+  <td class="tags" align="center">TSRC</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/ISRC</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">LANGUAGE</td>      
+  <td class="tags" align="center">TLAN</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/Language</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Language</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">LENGTH</td>
+  <td class="tags" align="center">TLEN</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+
+<tr>
+  <td class="tags">LYRICIST</td>      
+  <td class="tags" align="center">TEXT</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Lyricist</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">MEDIATYPE</td>      
+  <td class="tags" align="center">TMED</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">MIXARTIST</td>      
+  <td class="tags" align="center">TPE4</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">MOOD</td>      
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">TMOO</td>
+  <td class="tags" align="center">WM/Mood</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags"><a href="#IPLS">MUSICIANCREDITS</a> *</td>      
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">TMCL</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">NETRADIOOWNER</td>      
+  <td class="tags" align="center">TRSO</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">NETRADIOSTATION</td>      
+  <td class="tags" align="center">TRSN</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">ORIGALBUM</td>      
+  <td class="tags" align="center">TOAL</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/OriginalAlbumTitle</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">ORIGARTIST</td>      
+  <td class="tags" align="center">TOPE</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/OriginalArtist</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Original Artist</td>
+  <td class="tags" align="center">Orig. Artist</td>
+</tr>
+<tr>
+  <td class="tags">ORIGFILENAME</td>      
+  <td class="tags" align="center">TOFN</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/OriginalFilename</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">ORIGLYRICIST</td>      
+  <td class="tags" align="center">TOLY</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/OriginalLyricist</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Original lyricist</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">ORIGYEAR</td>
+  <td class="tags" align="center">TORY</td>
+  <td class="tags" align="center">TDOR</td>
+  <td class="tags" align="center">WM/OriginalReleaseYear</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<!--<tr>
+  <td class="tags">PLAYLISTDELAY</td>
+  <td class="tags" align="center">TDLY</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>-->
+<tr>
+  <td class="tags"><a href="#POPM">POPULARIMETER</a> *</td>
+  <td class="tags" align="center">POPM</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Rating</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">PUBLISHER</td>
+  <td class="tags" align="center">TPUB</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/Publisher</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags"><a href="#MM">RATING MM</a> *</td>
+  <td class="tags" align="center">POPM</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/SharedUserRating</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Rating</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags"><a href="#WMP">RATING WMP</a> *</td>
+  <td class="tags" align="center">POPM</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/SharedUserRating</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Rating</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<!--<tr>
+  <td class="tags">RECORDINGDATES</td>
+  <td class="tags" align="center">TRDA</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>-->
+<tr>
+  <td class="tags">RELEASETIME</td>
+  <td class="tags" align="center">TDRL</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">SETSUBTITLE</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">TSST</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">SUBTITLE</td>
+  <td class="tags" align="center">TIT3</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/SubTitle</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Subtitle</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<!--<tr>
+  <td class="tags">TIME</td>
+  <td class="tags" align="center">TIME</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>-->
+<tr>
+  <td class="tags">TAGGINGTIME</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">TDTG</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">TITLE</td>
+  <td class="tags" align="center">TIT2</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">Title</td>
+  <td class="tags" align="center">Name</td>
+  <td class="tags" align="center">Title</td>
+  <td class="tags" align="center">Title</td>
+</tr>
+<tr>
+  <td class="tags">TITLESORTORDER</td>
+  <td class="tags" align="center">TSOT</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/TitleSortOrder</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">TRACK</td>
+  <td class="tags" align="center">TRCK</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/TrackNumber</td>
+  <td class="tags" align="center">Track Number</td>
+  <td class="tags" align="center">Track number</td>
+  <td class="tags" align="center">Track #</td>
+</tr>
+<tr>
+  <td class="tags"><a href="#USLT">UNSYNCEDLYRICS</a> *</td>
+  <td class="tags" align="center">USLT</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/Lyrics</td>
+  <td class="tags" align="center">Lyrics</td>
+  <td class="tags" align="center">Lyrics</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">WWWARTIST</td>
+  <td class="tags" align="center">WOAR</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/AuthorURL</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Official artist Web site</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">WWWAUDIOFILE</td>
+  <td class="tags" align="center">WOAF</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/AudioFileURL</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Official audio file information</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">WWWAUDIOSOURCE</td>
+  <td class="tags" align="center">WOAS</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/AudioSourceURL</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Official audio source</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">WWWCOMMERCIALINFO</td>
+  <td class="tags" align="center">WCOM</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">WM/PromotionURL</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">WWWCOPYRIGHT</td>
+  <td class="tags" align="center">WCOP</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">CopyrightURL</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">WWWPUBLISHER</td>
+  <td class="tags" align="center">WPUB</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">WWWPAYMENT</td>
+  <td class="tags" align="center">WPAY</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">WWWRADIOPAGE</td>
+  <td class="tags" align="center">WORS</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+<tr>
+  <td class="tags">WWW</td>
+  <td class="tags" align="center">WXXX</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Other Web sites</td>
+  <td class="tags" align="center">URL</td>
+</tr>
+<tr>
+  <td class="tags">YEAR</td>
+  <td class="tags" align="center">TYER</td>
+  <td class="tags" align="center">TDRC</td>
+  <td class="tags" align="center">WM/Year</td>
+  <td class="tags" align="center">Year</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">Year</td>
+</tr>
+<tr>
+  <td class="tags"><i>Other fields</i></td>
+  <td class="tags" align="center">TXXX</td>
+  <td class="tags" align="center">"</td>
+  <td class="tags" align="center"><i>field name</i></td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+  <td class="tags" align="center">&nbsp;</td>
+</tr>
+
+</table>
+<!-- END of TABLE -->
+
+<div class="note"><div class="noteh"><a id="IPLS"></a>INVOLVEDPEOPLE, MUSICIANCREDITS</div><div class="noteb">
+<p>
+	<strong>Syntax:</strong> Role1:Person1;Role2:Person2; ...<br />
+	<strong>Example:</strong> Singer:Robbie Williams;<br />
+</p></div></div>
+
+<div class="note"><div class="noteh"><a id="TCMP"></a>ITUNESCOMPILATION</div><div class="noteb">
+<p>
+	<strong>Syntax:</strong> Either enter the value 1 or delete the field<br />
+	<strong>Note:</strong> Unofficial field that is only used by iTunes/iPod to mark albums as sampler.<br />
+</p></div></div>
+
+<div class="note"><div class="noteh"><a id="PCST"></a>ITUNESPODCAST</div><div class="noteb">
+<p>
+	<strong>Syntax:</strong> Either enter the value 1 or delete the field<br />
+	<strong>Note:</strong> Unofficial field that is only used by iTunes/iPod to mark tracks as podcasts.<br />
+</p></div></div>
+
+<div class="note"><div class="noteh"><a id="POPM"></a>POPULARIMETER</div><div class="noteb">
+<p>
+This description is for only ID3v2 tags. The playcounter is an optional value.
+</p>
+<p>
+	<strong>Syntax:</strong> Email|Rating|Playcounter<br />
+	<strong>Example:</strong>  Mp3tag|255|5<br />
+	<strong>Note:</strong> The Rating is an integer between 0 (worst) and 255 (best).<br />
+</p></div></div>
+
+<div class="note"><div class="noteh"><a id="MM"></a>RATING MM</div><div class="noteb">
+<p>
+	Track rating from 1 = Bad to 5 = Very good like MediaMonkey does it. You can also enter stars * (and - for half stars) for rating the track.
+</p>
+</div></div>
+
+<div class="note"><div class="noteh"><a id="WMP"></a>RATING WMP</div><div class="noteb">
+<p>
+	Track rating from 1 = Bad to 5 = Very good like Windows Media Player does it. You can also enter stars * for rating the track.
+</p>
+</div></div>
+
+
+<div class="note"><div class="noteh"><a id="USLT"></a>UNSYNCEDLYRICS</div><div class="noteb">
+<p>
+	<strong>Syntax:</strong>  xxx||Lyrics<br />
+	<strong>Note:</strong> xxx = Language of the lyrics, abbreviated by 3 characters according to ISO-639-2.<br />
+</p></div></div>
+
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>

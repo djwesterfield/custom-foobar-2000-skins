@@ -1,0 +1,3 @@
+Theme: fooVisuals
+Artist: hxck
+Additional link: http://customize.org/foobar/skins/65158

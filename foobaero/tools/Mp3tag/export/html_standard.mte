@@ -1,0 +1,48 @@
+﻿$filename(html,utf-8)
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
+<head>
+	<meta name="GENERATOR" content="Mp3tag - http://www.mp3tag.de" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Mp3tag - Datei&uuml;bersicht</title>
+	<style type="text/css"><!--
+		h1 { font-family: Verdana, Tahoma, Arial, sans-serif; font-size: 14pt; color: #000 }
+		body { font-family: Verdana, Tahoma, Arial, sans-serif; font-size: 8pt; background: #fff }
+		table, tr, td { font-family: Verdana, Tahoma, Arial, sans-serif; font-size: 9pt; color: #000; }
+		a:link, a:visited, a:active { text-decoration: none; color: #03f; }
+		a:hover { text-decoration: none; color: #f03; }
+		.title { font-weight: bold; padding: 7px; margin: 0px; color: #000; }
+		.odd { background-color: #ccc; }
+	--></style>
+</head>
+<body>
+	<h1>Mp3tag - Datei&uuml;bersicht</h1>
+	<p>%_date%</p>
+	<table>
+		<tr>
+			<th class="title">Titel</th>
+			<th class="title">Interpret</th>
+			<th class="title">Album</th>
+			<th class="title">Track</th>
+			<th class="title">Jahr</th>
+			<th class="title">Genre</th>
+			<th class="title">Dateiname</th>
+		</tr>
+
+$loop(%_filename_ext%)
+		<tr>
+			<td$if($odd(%_counter%), class="odd",)>%title%</td>
+			<td$if($odd(%_counter%), class="odd",)>%artist%</td>
+			<td$if($odd(%_counter%), class="odd",)>%album%</td>
+			<td$if($odd(%_counter%), class="odd",)>%track%</td>
+			<td$if($odd(%_counter%), class="odd",)>%year%</td>
+			<td$if($odd(%_counter%), class="odd",)>%genre%</td>
+			<td$if($odd(%_counter%), class="odd",)>%_filename_ext%</td>
+		</tr>
+$loopend()
+
+	</table>
+	<p>Erstellt am %_date% mit %_app% - dem universellen Tag Editor <a href="http://www.mp3tag.de/" title="Mp3tag Website">www.mp3tag.de</a></p>
+</body>
+</html>

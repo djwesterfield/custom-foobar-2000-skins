@@ -1,0 +1,3 @@
+$filename(csv,utf-16)Titel;Interpret;Album;Track;Jahr;Länge;Größe;Geändert;Pfad;Dateiname;
+$loop(%_filename_ext%)%title%;%artist%;%album%;%track%;%year%;%_length_seconds%;%_file_size%;%_file_mod_date%;%_folderpath%;%_filename_ext%;
+$loopend()Erstellt am %_date% mit %_app% - dem universellen Tag Editor - http://www.mp3tag.de/

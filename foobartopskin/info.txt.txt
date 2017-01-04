@@ -1,0 +1,3 @@
+Theme: Foobar Topskin
+Artist: Laurens_Jaja
+Additional link: http://customize.org/foobar/skins/68776

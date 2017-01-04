@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - Filtering files and tags (Searching)" />
+	<meta name="Keywords" content="" />
+	<title>Mp3tag Help - Filtering files and tags (Searching)</title>
+	<link rel="stylesheet" type="text/css" href="content.css" />
+</head>
+<body>
+	<div id="wrap">
+	<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+	<div>
+
+		<h1>Filtering files and tags (Searching)</h1>
+		
+		<h2>Introduction</h2>
+		
+		<p>
+		The <i>Filter</i> allows for searching files that meet a certain criteria (e.g., the filename contains
+		specific characters or a tag field has a specific content). By default it is located at the bottom of
+		the file list and can be enabled and disabled via 'View > Filter' or the <span class="hotkey">F3</span>
+		keyboard shortcut.
+		</p>
+		
+		<p>
+		To filter the file list simply start typing in the filter field. As a result, all files that contain
+		the specified filter string in their tag or file name are listed in the file view.
+		</p>
+		
+		<p>
+		Sometimes it is neccessary to use more complex criteria to search for files (e.g., all files of a
+		specific genre but not of that artist). To achive this, Mp3tag has the notion of <i>filter expressions</i>.
+		Filter expressions are simple expressions that consist of tag field names, filter keywords and text. 
+		</p>
+		
+		<h2>Examples of filter expressions</h2>
+		
+		<div class="note"><div class="noteh">artist IS Air AND album IS Moon Safari</div><div class="noteb">
+		<p>
+		Artist is "Air" and album is "Moon Safari"
+		</p></div></div>
+		
+		<div class="note"><div class="noteh">genre IS Rock AND artist HAS Stone</div><div class="noteb">
+		<p>
+		Genre is "Rock" and artist contains "Stone"
+		</p></div></div>
+		
+		<div class="note"><div class="noteh">NOT genre IS Rock</div><div class="noteb">
+		<p>
+		Genre is not "Rock"
+		</p></div></div>
+		
+		<div class="note"><div class="noteh">%_covers% IS ""</div><div class="noteb">
+		<p>
+		All files that do not contain cover art.
+		</p></div></div>
+		
+		<h2>Description of the Filter Expression Language</h2>
+		
+		<div class="note"><div class="noteh">&lt;string&gt;</div><div class="noteb">
+		<p>
+		Returns only files that contain every word in the string as a word or substring thereof. A word is a contiguous sequence of characters excluding the space character.
+		</p></div></div>
+		
+		<div class="note"><div class="noteh">&lt;field&gt; HAS &lt;string&gt;</div><div class="noteb">
+		<p>
+		Returns only files that have all words from &lt;string&gt; in their tag field named &lt;field&gt;. You can use * to address all fields.
+		</p></div></div>
+		
+		<div class="note"><div class="noteh">&lt;field&gt; IS &lt;string&gt;</div><div class="noteb">
+		<p>
+		Returns only files that where the content of at least one tag field named &lt;field&gt; is equal to &lt;string&gt;.
+		</p></div></div>
+		
+		<div class="note"><div class="noteh">&lt;expr1&gt; AND &lt;expr2&gt;<br />&lt;expr1&gt; OR &lt;expr2&gt;</div><div class="noteb">
+		<p>
+		Combines the filter expressions &lt;expr1&gt; and &lt;expr2&gt; by logical <i>and</i> or <i>or</i>. Parentheses can be used to group
+		combined expressions.
+		</p></div></div>
+		
+		<div class="note"><div class="noteh">NOT &lt;expr&gt;</div><div class="noteb">
+		<p>
+		Inverts the result of &lt;expr&gt;.
+		</p></div></div>
+		
+		<div class="note"><div class="noteh">&lt;field&gt; GREATER &lt;number&gt;<br />&lt;field&gt; LESS &lt;number&gt;<br />&lt;field&gt; EQUAL &lt;number&gt;</div><div class="noteb">
+		<p>
+		Returns all files where the content of tag field named &lt;field&gt; is greater, equal, or less that the integer value specified by &lt;number&gt;.
+		</p></div></div>
+		
+		<div class="note"><div class="noteh">&lt;field&gt; MISSING</div><div class="noteb">
+		<p>
+		Returns all files where tag field named &lt;field&gt; is missing.
+		</p></div></div>
+		
+		<div class="note"><div class="noteh">&lt;field&gt; PRESENT</div><div class="noteb">
+		<p>
+		Returns all files where tag field named &lt;field&gt; is present.
+		</p></div></div>
+		
+		<div class="note"><div class="noteh">&lt;field&gt; MATCHES &lt;regexp&gt;</div><div class="noteb">
+		<p>
+		Returns only files where the content of the tag field named &lt;field&gt; matches against the regular expression &lt;regexp&gt;. You can use * to address all fields.
+		</p></div></div>
+		
+		<h2>Notes</h2>
+		<ul>
+		    <li>If &lt;field&gt; or &lt;string&gt; contains spaces, it should be enclosed in double quotation marks, e.g., album IS "Moon Safari".</li>
+		    <li>If &lt;field&gt; in HAS/IS/GREATER/LESS/EQUAL/MATCHES contains $ or % it should be enclosed in double quotation marks and will be treated as a <a href="main_scripting.html">format string</a> instead of a tag field name. This will decrease search speed on large libraries since the format strings need to be evaluated before filtering.</li>
+		    <li>It is not possible to filter by strings containing double quotations marks. This is a limitation of the feature.</li>
+		    <li>All operations are non-case sensitive. All filter keywords must be uppercase.</li>
+		</ul>
+		
+		<p>
+		If you also use <a href="http://foobar2000.org">foobar2000</a> the filter language should look very familiar
+		(because this is where we got the idea from).
+		</p>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>

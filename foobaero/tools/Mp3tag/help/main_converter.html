@@ -1,0 +1,418 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - convert tags from/to filenames" />
+	<meta name="Keywords" content="" />
+	<title>Mp3tag Help - convert tags from/to filenames</title>
+	<link rel="stylesheet" type="text/css" href="content.css" />
+</head>
+<body>
+<div id="wrap">
+	<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+	<div>
+		<h1>Convert tags from/to filenames</h1>
+		
+		<p>
+		    <strong>Mp3tag</strong> has a variety of possibilities to convert tags and file names.<br />
+		    Conversion means for example getting tag information from parts of the filename or renaming
+		    files based on the information stored in the tag of an audio file.
+		</p>
+		<p>
+		    The base concept behind all converters in Mp3tag is the so called format string, which describes an
+		    abstract pattern of a filename or a line in a tag-list file.<br />
+		    A format string consists of any characters and predefined placeholders or scripting functions. 
+		    Every placeholder begins with the percent sign (%), followed by a tag field name and ends with the 
+		    percent sign.<br />
+		    For example, the placeholder '%album%' stands for the field <i>Album</i> in the tag at all converters.<br />
+		</p>
+		<p>
+		    This document gives a short introduction to the converters in Mp3tag. Please also try them, Mp3tag has
+		    an unlimited undo feature in case something is not like you would have expected it :-)
+		</p>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<div>
+		<a id="ttf"></a><h1><img src="images/mt_ttf.png" alt="" /> Tag - Filename</h1>
+		<p>
+			Menu <a href="main_commands.html#ttf">Convert &gt; Tag - Filename</a>
+		</p>
+		<p>
+			You can rename files based on the tag and file information with this converter.<br />
+			The format string defines the format scheme of the new filename and all placeholders in this
+			format string will be replaced with the information from the file when executing this converter.<br />
+		</p>
+		
+		<strong>Format string</strong><br />
+			<p>
+				The format string describes the filename scheme for the rename operation
+				based on the tag and file information.<br /> You can use the following placeholders:
+			</p>
+			<table>
+				<tr><td><code>%album%</code></td>
+				<td>Album</td></tr>
+
+				<tr><td><code>%artist%</code></td>
+				<td>Artist</td></tr>
+
+				<tr><td><code>%comment%</code></td>
+				<td>Comment</td></tr>
+
+				<tr><td><code>%genre%</code></td>
+				<td>Genre</td></tr>
+
+				<tr><td><code>%title%</code></td>
+				<td>Title</td></tr>
+
+				<tr><td><code>%track%</code></td>
+				<td>Track-Number</td></tr>
+
+				<tr><td><code>%year%</code></td>
+				<td>Year</td></tr>
+				
+				<tr><td><code>%fieldname%</code></td>
+				<td>Any other tag field not listed here with the name 'fieldname'. Please have a look at 'View > Extended Tags...' for
+				an overview of all available tag fields in your file.</td></tr>
+				
+			</table>
+
+			<p>
+				There are also some special fields, which give you some technical information about the file:
+			</p>
+			
+			<table>
+				<tr><td><code>%_bitrate%</code></td>
+				<td>bitrate in kBit/s</td></tr>
+				
+				<tr><td><code>%_codec%</code></td>
+				<td>codec</td></tr>
+
+				<tr><td><code>%_counter%</code></td>
+				<td>number of selected file</td></tr>
+				
+				<tr><td><code>%_cover_mimetype%</code></td>
+	            <td>mimetype of embedded cover art</td></tr>
+	            
+	            <tr><td><code>%_cover_size%</code></td>
+	            <td>size in bytes of embedded cover art</td></tr>
+	            
+	            <tr><td><code>%_covers%</code></td>
+	            <td>number of embedded covers</td></tr>
+	            
+	            <tr><td><code>%_directory%</code></td>
+	            <td>name of the files' directory</td></tr>
+				
+				<tr><td><code>%_extension%</code></td>
+				<td>file extension</td></tr>
+				
+				<tr><td><code>%_file_create_date%</code></td>
+	            <td>creation date of file</td></tr>
+	            
+	            <tr><td><code>%_file_create_datetime%</code></td>
+	            <td>creation date and time of file</td></tr>
+	            
+	            <tr><td><code>%_file_create_datetime_raw%</code></td>
+	            <td>creation date and time of file in raw format</td></tr>
+	            
+	            <tr><td><code>%_file_mod_date%</code></td>
+	            <td>modified date of file</td></tr>
+	            
+	            <tr><td><code>%_file_mod_datetime%</code></td>
+	            <td>modified date and time of file</td></tr>
+	            
+	            <tr><td><code>%_file_mod_datetime_raw%</code></td>
+	            <td>modified date and time of file in raw format</td></tr>
+	            
+	            <tr><td><code>%_file_size%</code></td>
+	            <td>size of file formatted</td></tr>
+	            
+	            <tr><td><code>%_file_size_bytes%</code></td>
+	            <td>size of file in bytes</td></tr>
+	            
+	            <tr><td><code>%_file_size_kb%</code></td>
+	            <td>size of file in kilobytes</td></tr>
+	            
+	            <tr><td><code>%_file_size_mb%</code></td>
+	            <td>size of file in megabytes</td></tr>
+				
+				<tr><td><code>%_filename%</code></td>
+				<td>file name without extension</td></tr>
+				
+				<tr><td><code>%_filename_ext%</code></td>
+	            <td>file name with extension</td></tr>
+	            
+	            <tr><td><code>%_folderpath%</code></td>
+	            <td>path of file without file name</td></tr>
+	            
+	            <tr><td><code>%_parent_directory%</code></td>
+	            <td>name of the parent directory of the directory of the file</td></tr>
+	            
+	            <tr><td><code>%_id3v2_character_encoding%</code></td>
+	            <td>character encoding of ID3v2 tag (if available)</td></tr>
+
+				<tr><td><code>%_length%</code></td>
+				<td>length of file</td></tr>
+				
+				<tr><td><code>%_length_seconds%</code></td>
+				<td>length of file in seconds</td></tr>
+				
+				<tr><td><code>%_mode%</code></td>
+				<td>Mono/Stereo</td></tr>
+
+				<tr><td><code>%_samplerate%</code></td>
+				<td>sample rate</td></tr>
+				
+				<tr><td><code>%_tag%</code></td>
+	            <td>list of tag types in the file</td></tr>
+	            
+	            <tr><td><code>%_tag_read%</code></td>
+	            <td>tag type that is read and displayed</td></tr>
+	            
+	            <tr><td><code>%_tag_size%</code></td>
+	            <td>size of tags in file</td></tr>
+	            
+	            <tr><td><code>%_tag_size_appended%</code></td>
+	            <td>size of appended tags (e.g. ID3v1) in file</td></tr>
+	            
+	            <tr><td><code>%_tag_size_prepended%</code></td>
+	            <td>size of prepended tags (e.g. ID3v2) in file</td></tr>
+				
+				<tr><td><code>%_total%</code></td>
+				<td>total number of tracks from an album if track number has xx/xx format</td></tr>
+
+				<tr><td><code>%_total_files%</code></td>
+				<td>Total number of selected files</td></tr>
+
+				<tr><td><code>%_vbr%</code></td>
+				<td>VBR (variable Bitrate)</td></tr>
+
+			</table>
+			
+			<div class="note"><div class="noteh">Example</div><div class="noteb">
+				<p>
+					<strong>%artist% - %album% - $num(%track%,2) - %title%</strong> renames to <strong>Artist - Album - 01 - Title</strong>
+				</p>
+			</div></div>
+			
+			<div class="note"><div class="noteh">Notes</div><div class="noteb">
+				<p>
+					You can use the backslash to mark directories in the format string.
+				</p>
+				<p>
+					You can use the built-in <a href="main_scripting.html">Scripting functions</a>.
+				</p>
+			</div></div>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<div>
+		<a id="ftt"></a><h1><img src="images/mt_ftt.png" alt="" /> Filename - Tag</h1>
+		<p>
+			Menu <a href="main_commands.html#ttf">Convert &gt; Filename - Tag</a>
+		</p>
+		<p>
+			This converter takes parts from the filename and copies them to specified fields
+			in the tag of the audio file. The format string defines the format of the filename 
+			and the placeholders are describing the way to which tag field the parts will be copied.
+		</p>
+		
+		<strong>Format string</strong>
+			
+			<p>
+				The format string describes the formatting scheme of the filename. The placeholders used
+				mark the parts of the filename which are copied to the tag.<br />
+				You can use the following placeholders in the format string:
+			</p>
+			
+			<table>
+				<tr><td><code>%album%</code></td>
+				<td>Album</td></tr>
+
+				<tr><td><code>%artist%</code></td>
+				<td>Artist</td></tr>
+
+				<tr><td><code>%comment%</code></td>
+				<td>Comment</td></tr>
+
+				<tr><td><code>%genre%</code></td>
+				<td>Genre</td></tr>
+
+				<tr><td><code>%title%</code></td>
+				<td>Title</td></tr>
+
+				<tr><td><code>%track%</code></td>
+				<td>Track-Number</td></tr>
+
+				<tr><td><code>%year%</code></td>
+				<td>Year</td></tr>
+					
+				<tr><td><code>%dummy%</code></td>
+				<td>this part will be ignored</td></tr>
+					
+				<tr><td><code>%fieldname%</code></td>
+				<td>any field with name fieldname</td></tr>	
+			</table>
+			
+			<div class="note"><div class="noteh">Example</div><div class="noteb">
+				<p>
+					Filename: (Artist - Album) 01 EXAMPLE Year.mp3<br />
+					Format string: <code>(%artist% - %album%) %track% EXAMPLE %year%</code>
+				</p>
+			</div></div>
+			
+			<div class="note"><div class="noteh">Notes</div><div class="noteb">
+				<p>
+					You can use the backslash to mark directories in the format string.
+				</p>
+			</div></div>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<div>
+		<a id="tff"></a><h1><img src="images/mt_tff.png" alt="" /> Text file - Tag</h1>
+		
+		<p>
+			Menu <a href="main_commands.html#tff">Convert &gt; Text file - Tag</a>
+		</p>
+		<p>
+			This converter imports tag information from a text file. In this text file, each line corresponds to
+			the tag information for one file. The format string describes the format of these lines.
+		</p>
+		<p>
+		    Text files in Unicode format need a BOM (Byte Order Marker) to be correctly identified as Unicode files.
+		</p>
+		
+		<h2>Filename</h2>
+			<p>
+				Filename of the text file. The tags will be imported from this file.
+			</p>
+			
+			<h2>Format string</h2>
+			<p>
+				The format string describes the format of one line in the text file.<br />
+				You can use the following placeholders in the format string:<br />
+			</p>
+			
+			<table>
+				<tr><td><code>%album%</code></td>
+				<td>Album</td></tr>
+
+				<tr><td><code>%artist%</code></td>
+				<td>Artist</td></tr>
+
+				<tr><td><code>%comment%</code></td>
+				<td>Comment</td></tr>
+
+				<tr><td><code>%genre%</code></td>
+				<td>Genre</td></tr>
+
+				<tr><td><code>%title%</code></td>
+				<td>Title</td></tr>
+
+				<tr><td><code>%track%</code></td>
+				<td>Track-Number</td></tr>
+
+				<tr><td><code>%year%</code></td>
+				<td>Year</td></tr>
+
+				<tr><td><code>%field%</code></td>
+				<td>Any other tag field you'd like to use.</td></tr>
+
+				<tr><td><code>%_filename_ext%</code></td>
+				<td>Filename (current working directory is used as file path)</td></tr>
+
+				<tr><td><code>%_path%</code></td>
+				<td>Filename with full file path</td></tr>
+				
+				<tr><td><code>%dummy%</code></td>
+				<td>this part will be ignored</td></tr>
+				
+			</table>
+			
+			<div class="note"><div class="noteh">Example</div><div class="noteb">
+				<p>
+					Line in file:	Artist / Title / Album / Year<br />
+					Format string:	<code>%artist% / %title% / %album% / %year%</code><br />
+				</p>
+			</div></div>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<div>
+		<a id="ftf"></a><h1><img src="images/mt_ftf.png" alt="" /> Filename - Filename</h1>
+		
+		<p>
+			Menu <a href="main_commands.html#ftf">Convert &gt; Filename - Filename</a>
+		</p>
+		<p>
+			This converter is a rename tool, which renames filenames based on the filename. 
+			You can define up to nine parts of the old filename and let Mp3tag organize 
+			the parts in a new way.
+		</p>
+		
+		<h2>Old filename pattern</h2>
+			<p>
+				This format string splits the filename in several parts. You can use the following placeholders:
+			</p>
+			<p>
+				<code>
+					%1 &nbsp;&nbsp;first part<br />
+					%2 &nbsp;&nbsp;second part<br />
+					...<br />
+					%9 &nbsp;&nbsp;last part<br />
+				</code>
+			</p>
+			
+			<h2>New filename pattern</h2>
+			<p>
+				Format string which is a combination of the parts defined in the format string above.
+			</p>
+			
+			<div class="note"><div class="noteh">Example</div><div class="noteb">
+			<p>
+				Old filename pattern: <code>(%1 - %2) %3 %4 %5 (%6)</code><br />
+				Old filename: (Artist - Album) 01 EXAMPLE 2004 (COMMENT).mp3<br />
+				&nbsp;<br />
+				New filename pattern: <code>%5 (%1 - %2) Example '['%6']'</code><br />
+				New filename: 2004 (Artist - Album) Example [COMMENT].mp3
+			</p></div></div>
+			
+			<div class="note"><div class="noteh">Notes</div><div class="noteb">
+			<p>
+				You can mark directories via the backslash within the format string. Please note
+				that Mp3tag won't rename directories but will create new directories below the
+				current working directory if you use backslashes within the new filename pattern.
+			</p>
+			<p>
+				You can use the build-in <a href="main_scripting.html">Scripting functions</a>.
+			</p>
+			</div></div>
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>

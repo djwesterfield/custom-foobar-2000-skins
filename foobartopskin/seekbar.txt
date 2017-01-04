@@ -1,0 +1,131 @@
+//--------
+var weight_normal =400;
+var weight_bold   =800;
+var italic_no =0;
+var italic    =1;
+var uline_no  =0;
+var uline     =1;
+//--------
+var align_top   =0;
+var align_middle=1;
+var align_bottom=2;
+
+var align_left  =0;
+var align_center=1;
+var align_right =2;
+
+var trim_no     =0;
+var trim_chara  =1;
+var trim_word   =2;
+var trim_elips_chara =3;
+var trim_elips_word  =4;
+var trim_elips_path  =5;
+
+var flag_rtl        =0x0001;
+var flag_vert       =0x0002;
+var flag_nofit      =0x0004;
+var flag_dispctrl   =0x0020;
+var flag_nofallback =0x0400;
+var flag_trailspace =0x0800;
+var flag_nowrap     =0x1000;
+var flag_linelimit  =0x2000;
+var flag_noclip     =0x4000;
+
+function StrFmt(alignH,alignV,trim,flag){ return ((alignH<<28)|(alignV<<24)|(trim<<20)|flag); }
+//--------
+function RGB(r,g,b){ return (0xff000000|(r<<16)|(g<<8)|(b)); }
+function RGBA(r,g,b,a){ return ((a<<24)|(r<<16)|(g<<8)|(b)); }
+//--------
+function TimeFmt(t){
+	var zpad = function(n){
+		var str = n.toString();
+		return (str.length<2) ? "0"+str : str;
+	}
+	var h = Math.floor(t/3600); t-=h*3600;
+	var m = Math.floor(t/60); t-=m*60;
+	var s = Math.floor(t);
+	if(h>0) return h.toString()+":"+zpad(m)+":"+zpad(s);
+	return m.toString()+":"+zpad(s);
+}
+//----------------------------------------------------------------------------
+
+var g_fileinfo = null;
+
+var g_drag = 0;
+var g_drag_seek = 0;
+
+function on_paint(gr){
+	var ww = window.Width;
+	var wh = window.Height;
+	var pos = 0;
+	var length = fb.PlaybackLength;
+
+	if(length > 0){
+		if(g_drag){
+			pos = window.Width * g_drag_seek;
+		}
+		else{
+			pos = window.Width * (fb.PlaybackTime / length);
+		}
+	}
+
+	gr.FillGradRect(  0, 0,    pos, wh, 90, RGB(65,65,65), RGB(90,90,90));
+	gr.FillGradRect(pos, 0, ww-pos, wh, 90, RGB(40,40,40), RGB(40,40,40));
+
+}
+function on_size(){
+}
+function on_focus(focused){
+	//fb.trace("focus " + focused);
+}
+function on_key_down(key){
+	//fb.trace("key " + key);
+}
+function on_mouse_lbtn_down(x,y){
+	g_drag = 1;
+}
+function on_mouse_lbtn_up(x,y){
+	if(g_drag){
+		g_drag = 0;
+		g_drag_seek = x / window.Width;
+		g_drag_seek = (g_drag_seek<0) ? 0 : (g_drag_seek<1) ? g_drag_seek : 1;
+		fb.PlaybackTime = fb.PlaybackLength * g_drag_seek;
+	}
+}
+function on_mouse_move(x,y){
+	if(g_drag){
+		g_drag_seek = x / window.Width;
+		g_drag_seek = (g_drag_seek<0) ? 0 : (g_drag_seek<1) ? g_drag_seek : 1;
+		window.Repaint();
+	}
+}
+function on_mouse_wheel(delta){
+	//fb.trace("wheel " + delta);
+}
+//--------
+function on_playback_starting(cmd, paused){
+}
+function on_playback_new_track(info){
+	window.Repaint();
+}
+function on_playback_stop(){
+	window.Repaint();
+}
+function on_playback_seek(time){
+	window.Repaint();
+}
+function on_playback_pause(state){
+}
+function on_playback_edited(){
+}
+function on_playback_dynamic_info(){
+}
+function on_playback_dynamic_info_track(){
+}
+function on_playback_time(time){
+	window.Repaint();
+}
+function on_volume_change(val){
+}
+
+//EOF

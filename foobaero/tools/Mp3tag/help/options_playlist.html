@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!-- Florian Heidenreich -->
+	<!-- http://www.mp3tag.de/en -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="Author" content="Florian Heidenreich" />
+	<meta name="Description" content="Mp3tag Help - Configuration &gt; Playlist" />
+	<meta name="Keywords" content="" />
+	<title>Mp3tag Help - Configuration &gt; Playlist</title>
+	<link rel="stylesheet" type="text/css" href="content.css" />
+</head>
+<body>
+	<div id="wrap">
+	<div id="header"><a href="index.html" title="Back to main page"><img src="images/banner.gif" alt="Back to main page" title="Back to main page" /></a></div>
+
+	<div>
+		
+	<h1><a href="options.html" title="Back to Configuration overview...">Configuration</a> &gt; Playlist</h1>
+		
+	<h2>Write extended info</h2>
+	If this option is enabled, Mp3tag writes extended information to the playlist file
+	according to the format string.<br />
+	The audio player doesn't have to read the information from the tag of the audio file and
+	displays the extended information from the playlist.
+	
+	<h2>Entries relative to working directory</h2>
+    Enable this option, if you don't want full file paths in your playlist. This is enabled by default.
+    
+    <h2>Create Playlist automatically</h2>
+    This option enables automatic creation of playlists when saving tags to files.
+    
+    <a id="playlist"></a><h2>Filename of playlist</h2>
+    <p>
+		You can specify the filename (or a format string for the filename) of the playlist here. You can
+		use the following placeholders within the filename as well as the Mp3tag <a href="main_scripting.html">scripting funtions</a>.
+	</p>
+		<table>
+			<tr><td><code>%album%</code></td><td><i>Album</i></td></tr>
+			<tr><td><code>%artist%</code></td><td><i>Artist</i></td></tr>
+			<tr><td><code>%comment%</code></td><td><i>Comment</i></td></tr>
+			<tr><td><code>%year%</code></td><td><i>Year</i></td></tr>
+			<tr><td><code>%genre%</code></td><td><i>Genre</i></td></tr>
+			<tr><td><code>%_directory%</code></td><td><i>Directory name</i></td></tr>
+		</table>
+		<p>
+			Mp3tag uses the first selected file for replacing the placeholders at runtime.<br />
+			&nbsp;<br />
+			Example:<br />
+			&nbsp;<br />
+			<code>%artist% - %album% (%year%).m3u</code> would be <code>artist - album (year).m3u</code>
+		</p>
+		
+		<h2>Show confirm filename dialog</h2>
+		This options shows an input dialog for the playlists filename when creating the playlist. You can change
+		the filename of the playlist within this dialog but Mp3tag will not evaluate placeholders entered in this dialog.<br />
+		
+		<h2>Don't create directories</h2>
+		Since you can also use relative and absolute file paths as playlist file names - e.g. %artist%\%album%.m3u - 
+		this option prevents Mp3tag from creating any directories when creating playlists.
+		
+		<p>
+			<a class="index" href="index.html">Back to main page</a>
+		</p>
+	</div>
+	
+	<p class="copyright"><strong>All content and graphics are protected by copyright law!</strong> Copyright &copy; 2000-2010 <a href="http://www.mp3tag.de/en/" class="external">Florian Heidenreich</a></p>
+
+	</div>
+</body>
+</html>
