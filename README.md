@@ -24,3 +24,22 @@ Windows XP - SP2 or newer, Windows Vista, Windows 7, Windows 8, Windows 8.1, Win
 
 ### Hardware
 i686 or newer x86 processor. Any Windows PC built during the last 15 years should be OK.
+
+## Skins inside
+* allblack
+* darkavatar
+* deepfoobartheme
+* duitheme (Nov 2011)
+* elegance
+* foobaero
+* foobartopskin
+* foobear
+* foose
+* foovisual
+* functional2000
+* grounded
+* melancholy
+* minimal1.1
+* simpleskin
+* vintageblack
+* visapanel
