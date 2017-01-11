@@ -1,0 +1,5 @@
+If you are using the official foo_playcount.dll replace it with foo_playback_custom.dll!
+
+If you listening radio and get this error: Could not update tags (Access denied) on: bla bla bla.
+
+Then go to preferenses-tools-playback statistics custom and select: Update when playback percentage is: some %.
