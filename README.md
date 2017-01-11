@@ -27,6 +27,7 @@ i686 or newer x86 processor. Any Windows PC built during the last 15 years shoul
 
 ## Skins inside
 * allblack
+* bluefoo
 * darkavatar
 * deepfoobartheme
 * duitheme (Nov 2011)
@@ -39,7 +40,7 @@ i686 or newer x86 processor. Any Windows PC built during the last 15 years shoul
 * functional2000
 * grounded
 * melancholy
-* minimal1.1
+* minimalism1.1
 * simpleskin
 * vintageblack
 * visapanel
